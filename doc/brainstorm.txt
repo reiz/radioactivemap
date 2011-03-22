@@ -1,0 +1,31 @@
+
+- Domain sichern sichern.
+ CHECK
+
+- Versioncontrol with Github.com
+
+
+- Integration with PostgreSQL
+- Haroku
+- Design/Logo besorgen
+
+
+Measurement
+ - ID
+ - USER_ID
+
+ - Lat
+ - Lon
+
+ - Microsevert_Per_hour
+
+ - Creation_Date
+ - Update_Date
+
+ - content
+
+ - List of Comments
+
+
+- run the app with postgreSQL
+- integrate google maps
