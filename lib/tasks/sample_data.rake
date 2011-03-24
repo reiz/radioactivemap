@@ -19,7 +19,7 @@ namespace :db do
     admin.toggle!(:admin)
 
     99.times do |n|
-      name  = Faker::Name.name
+      name  = Faker::Name.fullname
       email = "example-#{n+1}@railstutorial.org"
       password  = "password"
       User.create!(:name => name,

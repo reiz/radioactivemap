@@ -37,6 +37,9 @@ section {
 
 section h1 {
   font-size: 200%;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 /* Links */
@@ -144,19 +147,23 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
-.field_with_errors {
-  margin-top: 10px;
-  padding: 2px;
-  background-color: red;
-  display: table;
+.field_with_errors input {
+  /*background-color: red;*/
+  border: 2px solid red;
 }
 
-.field_with_errors label {
-  color: #fff;
+label{
+    font-size: 1.5em;
+    color: #666666;
+}
+
+.labelTD{
+    text-align: right;
 }
 
 #error_explanation {
-  width: 400px;
+  display: table;
+  width: 90%;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;
@@ -246,4 +253,19 @@ form.new_micropost {
 form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
+}
+
+.logo{
+    width: 80px;
+}
+
+input{
+    padding-left: 15px;
+    height: 2.5em;
+    font-size: 1.0em;
+}
+
+.smallHint{
+    color: gray;
+    font-size: 0.7em;
 }

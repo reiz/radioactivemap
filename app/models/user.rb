@@ -1,21 +1,24 @@
-# == Schema Information
-# Schema version: 20110310030059
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#
-
 class User < ActiveRecord::Base
 
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :fullname, :username, :email, :password
+
+
+  validates :fullname, :presence      => true,
+                       :length        => { :within => 2..50 }
+
+  validates :username, :presence      => true,
+                       :uniqueness    => true,
+                       :length        => { :within => 2..50 }
+
+  validates :email,    :presence    => true,
+                       :length      => {:minimum => 5, :maximum => 254},
+                       :uniqueness  => true,
+                       :format      => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
+
+  validates :password, :presence      => true,
+                       :length        => { :within => 5..40 }
+
 
   has_many :microposts, :dependent => :destroy
 
@@ -29,16 +32,12 @@ class User < ActiveRecord::Base
 
   has_many :followers, :through => :reverse_relationships, :source => :follower
 
-  validates :name, :presence => true,
-                   :length   => { :maximum => 50 }
-
-  validates :password, :presence      => true,
-                       :confirmation  => true,
-                       :length        => { :within => 6..40 }
 
   before_save :encrypt_password
 
+
   scope :admin, where(:admin => true)
+
 
   def has_password?(submitted_password)
     self.encrypted_password == encrypt(submitted_password)

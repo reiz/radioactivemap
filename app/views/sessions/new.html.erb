@@ -1,15 +1,52 @@
-<h1>Sessions#new</h1>
+<h1>Sign in</h1>
+
 
 <%= form_for(:session, :url => sessions_path) do |f|  %>
-	<div class="field">
-		<%= f.label :email %><br/>
-		<%= f.text_field :email %>
-	</div>
-	<div class="field">
-		<%= f.label :password %><br/>
-		<%= f.password_field :password %>
-	</div>
-	<div class="action">
-		<%= f.submit "Sign in" %>
-	</div>
+    <table>
+      <colgroup>
+        <col width="80px">
+        <col width="300px">
+        <col width="*">
+      </colgroup>
+      <tr>
+        <td class="labelTD">
+            <%= f.label :email %>
+        </td>
+        <td>
+            <%= f.text_field :email, :class => "round" %>
+        </td>
+        <td class="smallHint">
+
+        </td>
+      </tr>
+      <tr>
+        <td class="labelTD">
+            <%= f.label :password %>
+        </td>
+        <td>
+            <%= f.password_field :password, :class => "round" %>
+        </td>
+        <td class="smallHint">
+            Your secret.
+        </td>
+      </tr>
+      <tr>
+        <td >
+
+        </td>
+        <td class="actions">
+            <%= f.submit "Sign in", :class => "round" %>
+        </td>
+        <td class="smallHint">
+
+        </td>
+      </tr>
+    </table>
 <% end %>
+
+<div id="register-area" style="display:block; margin-top: 50px; text-align:center;" align="center">
+    <p>
+        If you don't have an account yet. Just sign up for free.
+    </p>
+</div>
+<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>

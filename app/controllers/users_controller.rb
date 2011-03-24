@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to radioactivemap"
+      flash[:success] = "Welcome to Radioactive Map"
       redirect_to @user
     else 
       @title = "Sign up"
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     @title = "Edit user"
   end
 
@@ -42,9 +42,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+#    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
-    @title = @user.name
   end
 
   def index
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   private
 
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find_by_username(params[:id])
       redirect_to(root_path) unless current_user?(@user)
     end
 

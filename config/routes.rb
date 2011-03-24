@@ -1,5 +1,7 @@
 Radioactivemap::Application.routes.draw do
 
+
+  resources :users, :key => :username
   resources :users do
     member do
       get :following, :followers
