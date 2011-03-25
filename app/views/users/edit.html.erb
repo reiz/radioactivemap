@@ -1,25 +1,75 @@
-<h1>Edit user</h1>
+<h1>Edit your Profile</h1>
 
 <%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <table>
+      <colgroup>
+        <col width="80px" align="right">
+        <col width="300px">
+        <col width="*">
+      </colgroup>
+      <tr>
+        <td class="labelTD"></td>
+        <td>
+            <div>
+              <%= gravatar_for @user %>
+              <a href="http://gravatar.com/emails">change</a>
+            </div>
+        </td>
+        <td class="smallHint"></td>
+      </tr>
+      <tr>
+        <td class="labelTD">
+            <%= f.label :fullname, "Full Name" %>
+        </td>
+        <td>
+            <%= f.text_field :fullname, :class => "round" %>
+        </td>
+        <td class="smallHint">
+            This is visible on your posts.
+        </td>
+      </tr>
+      <tr>
+        <td class="labelTD">
+            <%= f.label :username %>
+        </td>
+        <td>
+            <%= f.text_field :username, :class => "round" %><br/>
+        </td>
+        <td class="smallHint">
+            Your public profile:<br/>
+            http://radioactivemap.com/users/ <b>USERNAME</b>
+        </td>
+      </tr>
+      <tr>
+        <td class="labelTD">
+            <%= f.label :email %>
+        </td>
+        <td>
+            <%= f.text_field :email, :class => "round" %>
+        </td>
+        <td class="smallHint">
+            Invisible for other users. We take care of it.
+        </td>
+      </tr>
+      <tr>
+        <td class="labelTD">
+            <%= f.label :password %>
+        </td>
+        <td>
+            <%= f.password_field :password, :class => "round" %>
+        </td>
+        <td class="smallHint">
+            Your secret.
+        </td>
+      </tr>
+      <tr>
+        <td >
 
-<div>
-  <%= gravatar_for @user %>
-  <a href="http://gravatar.com/emails">change</a>
-</div>
+        </td>
+        <td class="actions">
+            <%= f.submit "Save", :class => "round" %>
+        </td>
+      </tr>
+    </table>
+<% end %>

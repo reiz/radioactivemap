@@ -4,64 +4,63 @@
     <center>
         <%= render 'shared/error_messages', :object => f.object %>
     </center>
-    <table>
-      <colgroup>
-        <col width="80px" align="right">
-        <col width="300px">
-        <col width="*">
-      </colgroup>
-      <tr>
-        <td class="labelTD">
-            <%= f.label :fullname, "Full Name" %>
-        </td>
-        <td>
-            <%= f.text_field :fullname, :class => "round" %>
-        </td>
-        <td class="smallHint">
-            This is visible on your posts.
-        </td>
-      </tr>
-      <tr>
-        <td class="labelTD">
-            <%= f.label :username %>
-        </td>
-        <td>
-            <%= f.text_field :username, :class => "round" %><br/>
-        </td>
-        <td class="smallHint">
-            Your public profile:<br/>
-            http://radioactivemap.com/users/ <b>USERNAME</b>
-        </td>
-      </tr>
-      <tr>
-        <td class="labelTD">
-            <%= f.label :email %>
-        </td>
-        <td>
-            <%= f.text_field :email, :class => "round" %>
-        </td>
-        <td class="smallHint">
-            Invisible for other users. We take care of it.
-        </td>
-      </tr>
-      <tr>
-        <td class="labelTD">
-            <%= f.label :password %>
-        </td>
-        <td>
-            <%= f.password_field :password, :class => "round" %>
-        </td>
-        <td class="smallHint">
-            Your secret.
-        </td>
-      </tr>
-      <tr>
-        <td >
 
-        </td>
-        <td class="actions">
-            <%= f.submit "Sign up", :class => "round" %>
-        </td>
-      </tr>
-    </table>
+    <div style="display:table-row;">
+      <div class="labelCel">
+        <%= f.label :fullname, "Full Name" %>
+      </div>
+      <div class="inputCel">
+        <%= f.text_field :fullname, :class => "round" %>
+      </div>
+      <div class="hintCel smallHint">
+        This is visible on your posts.
+      </div>
+    </div>
+
+
+    <div style="display:table-row;">
+      <div class="labelCel">
+        <%= f.label :username %>
+      </div>
+      <div class="inputCel">
+        <%= f.text_field :username, :class => "round" %>
+      </div>
+      <div class="hintCel smallHint" >
+        Your public profile:<br/>
+        http://radioactivemap.com/users/ <b>USERNAME</b>
+      </div>
+    </div>
+
+    <div style="display:table-row;">
+      <div class="labelCel">
+        <%= f.label :email %>
+      </div>
+      <div class="inputCel">
+        <%= f.text_field :email, :class => "round" %>
+      </div>
+      <div class="hintCel smallHint">
+        Invisible for other users. We take care of it.
+      </div>
+    </div>
+
+    <div style="display:table-row;">
+      <div class="labelCel">
+        <%= f.label :password %>
+      </div>
+      <div class="inputCel">
+        <%= f.password_field :password, :class => "round" %>
+      </div>
+      <div class="hintCel smallHint">
+        Your secret.
+      </div>
+    </div>
+
+    <div style="display:table-row;">
+      <div class="labelCel"></div>
+      <div class="inputCel">
+        <%= f.submit "Sign up", :class => "button" %>
+      </div>
+      <div class="hintCel smallHint"></div>
+    </div>
+
 <% end %>

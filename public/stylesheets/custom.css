@@ -1,142 +1,182 @@
 
+/******** LAYOUT **********/
+
 .container {
-  width: 710px;
+    width: 710px;
 }
 
 body {
-  background: #cff;
+    background: #cff;
+    /*background-image: url("/images/background.jpg");*/
 }
 
 header {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 header img {
-  padding: 1em;
-  background: #fff;
-}
-
-footer {
-  text-align: center;
-  margin-top: 10px;
-  width: 710px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-footer nav {
-  float: none;
+    padding: 1em;
+    background: #fff;
 }
 
 section {
-  margin-top: 1em;
-  font-size: 120%;
-  padding: 20px;
-  background: #fff;
+    display: inline-block;
+    width: 670px;
+    margin-top: 1em;
+    font-size: 120%;
+    padding: 20px;
+    background: #fff;
+}
+
+.content{
+    border: 0px solid black;
+    float: left;
+    width: 450px;
+    padding: 10px;
+}
+
+.sidebar{
+    width: 176px;
+    border: 0px solid black;
+    float: left;
+    padding: 10px;
+    vertical-align: top;
+    background: #ffe4c4;
 }
 
 section h1 {
-  font-size: 200%;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 30px;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Links */
+footer {
+    text-align: center;
+    margin-top: 10px;
+    width: 710px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+footer nav {
+    float: none;
+}
+
+
+
+/******* Links *********/
 
 a {
-  color: #09c;
-  text-decoration: none;
+    color: #09c;
+    text-decoration: none;
 }
 
 a:hover {
-  color: #069;
-  text-decoration: underline;
+    color: #069;
+    text-decoration: underline;
 }
 
 a:visited {
-  color: #069;
+    color: #069;
 }
 
-/* Navigation */
+
+/****** Navigation ******/
 
 nav {
-  float: right;
+    float: right;
 }
 
 nav {
-  background-color: white;
-  padding: 0 0.7em;
-  white-space: nowrap;
+    background-color: white;
+    padding: 0 0.7em;
+    white-space: nowrap;
 }
 
 nav ul {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0.2em 0;
+    list-style-type: none;
+    display: inline-block;
+    padding: 0.2em 0;
 }
 
 nav ul li a {
-  padding: 0 5px;
-  font-weight: bold;
+    padding: 0 5px;
+    font-weight: bold;
 }
 
 nav ul li a:visited {
-  color: #09c;
+    color: #09c;
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 
-/* Sign up button */
+
+/***** Sign up button *******/
 
 a.signup_button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  width: 190px;
-  color: #fff;
-  background: #006400;
-  font-size: 150%;
-  font-weight: bold;
-  padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    width: 190px;
+    color: #fff;
+    background: #006400;
+    font-size: 150%;
+    font-weight: bold;
+    padding: 20px;
 }
 
 
-/* Round corners */
+
+/***** Round corners ********/
 
 .round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
 }
+
+
+
+/***** 3 Col Form ********/
+
+.labelCel{
+    width: 110px;
+    text-align: right;
+    display: table-cell;
+    padding-right: 5px;
+}
+
+.inputCel{
+    padding-left: 5px;
+    width: 300px;
+    display: table-cell;
+}
+
+.inputCel input{
+    width: 270px;
+}
+
+.hintCel{
+    width: 240px;
+    display: table-cell;
+    border: 0px solid black;
+    vertical-align: middle;
+}
+
+
 
 /* User show page */
-
-table.profile {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-td.main {
-  width: 70%;
-  padding: 1em;
-}
-
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-}
 
 .profile img.gravatar {
   border: 1px solid #999;
@@ -148,8 +188,11 @@ div.field, div.actions {
 }
 
 .field_with_errors input {
-  /*background-color: red;*/
   border: 2px solid red;
+}
+
+.postField{
+    width: 430px;
 }
 
 label{
@@ -157,9 +200,8 @@ label{
     color: #666666;
 }
 
-.labelTD{
-    text-align: right;
-}
+
+/******** ERROR STYLES **********/
 
 #error_explanation {
   display: table;
@@ -192,6 +234,9 @@ label{
   list-style: square;
 }
 
+
+
+
 ul.users {
   margin-top: 1em;
 }
@@ -200,34 +245,39 @@ ul.users {
   list-style: none;
 }
 
-h1.micropost {
-  margin-bottom: 0.3em;
-}
 
-table.microposts {
+.microposts {
   margin-top: 1em;
+  width: 100%;
 }
 
-table.microposts tr {
-  height: 70px;
+.posting{
+    display: table-row;
+    width: 100%;
+    height: 90px;
+    padding-bottom: 50px;
 }
 
-table.microposts tr td.gravatar {
-  border-top: 1px solid #ccc;
+.posting .gravatar{
+    display: table-cell;
+    width: 50px;
+}
+
+.micropost {
   vertical-align: top;
-  width: 50px;
+  padding: 0px;
 }
 
-table.microposts tr td.micropost {
-  border-top: 1px solid #ccc;
-  vertical-align: top;
-  padding-top: 10px;
+.posting .micropost{
+    display: table-cell;
+    border-top: 1px solid #ccc;
+    vertical-align: top;
+    padding-left: 7px;
 }
 
-table.microposts tr td.micropost span.timestamp {
-  display: block;
-  font-size: 85%;
-  color: #666;
+.timestamp{
+    font-size: 0.8em;
+    color: gray;
 }
 
 div.user_info img {
@@ -244,6 +294,12 @@ div.user_info span.user_name {
 
 div.user_info span.microposts {
   font-size: 80%;
+}
+
+.micropost .user{
+    font-size: 1.1em;
+    font-weight: bold;
+    color: black;
 }
 
 form.new_micropost {
@@ -268,4 +324,13 @@ input{
 .smallHint{
     color: gray;
     font-size: 0.7em;
+}
+
+.stat{
+
+}
+
+.inputCel .button{
+    width: 150px;
+    height: 50px;
 }

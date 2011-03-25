@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
   scope :admin, where(:admin => true)
 
 
+  def to_param
+    username
+  end
+
   def has_password?(submitted_password)
     self.encrypted_password == encrypt(submitted_password)
   end

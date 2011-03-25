@@ -27,11 +27,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by_username(params[:id])
-    @title = "Edit user"
+    @title = "Edit your Profile"
   end
 
   def update
-    @user = User.find(params[:id])
+    p params[:id]
+    @user = User.find_by_username(params[:id])
+    p @user
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated."
       redirect_to @user
@@ -60,14 +62,14 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     @users = @user.following.paginate(:page => params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
   end

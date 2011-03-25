@@ -12,7 +12,7 @@
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.fullname %><br />
-      <strong>URL</strong> <%= link_to user_path(@user.username), @user %><br />
+      <strong>URL</strong> <%= link_to @user %><br />
       <strong>Microposts</strong> <%= @user.microposts.count %>
       <%= render 'shared/stats' %>
       <% unless @users.empty? %>
