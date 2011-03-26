@@ -1,5 +1,4 @@
 
-
 - E-Mail Server aufsetzen
 - Passwod forgot function
 - integrate google maps
@@ -17,5 +16,4 @@ Measurement
  - Lat
  - Lon
  - Microsevert_Per_hour
-
-
+ - Image

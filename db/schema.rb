@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110321011810) do
 
   create_table "microposts", :force => true do |t|
-    t.string   "content"
+    t.string   "content",    :limit => 240, :null => false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(:version => 20110321011810) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "fullname"
-    t.string   "email"
+  create_table "users",       :force => true do |t|
+    t.string   "username",    :limit => 50 , :null => false
+    t.string   "fullname",    :limit => 50 , :null => false
+    t.string   "email",       :limit => 254, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encrypted_password"
-    t.string   "salt"
+    t.string   "encrypted_password",   :null => false
+    t.string   "salt",                 :null => false
     t.boolean  "admin",              :default => false
   end
 
