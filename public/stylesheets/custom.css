@@ -6,8 +6,10 @@
 }
 
 body {
-    background: #cff;
-    /*background-image: url("/images/background.jpg");*/
+    background: black;
+    background-image: url("/images/background.jpg") ;
+    background-repeat: repeat-y;
+    background-position: center;
 }
 
 header {
@@ -175,32 +177,6 @@ a.signup_button {
 }
 
 
-
-/* User show page */
-
-.profile img.gravatar {
-  border: 1px solid #999;
-  margin-bottom: -15px;
-}
-
-div.field, div.actions {
-  margin-bottom: 10px;
-}
-
-.field_with_errors input {
-  border: 2px solid red;
-}
-
-.postField{
-    width: 430px;
-}
-
-label{
-    font-size: 1.5em;
-    color: #666666;
-}
-
-
 /******** ERROR STYLES **********/
 
 #error_explanation {
@@ -235,15 +211,7 @@ label{
 }
 
 
-
-
-ul.users {
-  margin-top: 1em;
-}
-
-.users li {
-  list-style: none;
-}
+/******* PROFILE, MICROPOST ******/
 
 
 .microposts {
@@ -275,6 +243,12 @@ ul.users {
     padding-left: 7px;
 }
 
+.micropost .user{
+    font-size: 1.1em;
+    font-weight: bold;
+    color: black;
+}
+
 .timestamp{
     font-size: 0.8em;
     color: gray;
@@ -296,12 +270,6 @@ div.user_info span.microposts {
   font-size: 80%;
 }
 
-.micropost .user{
-    font-size: 1.1em;
-    font-weight: bold;
-    color: black;
-}
-
 form.new_micropost {
   margin-bottom: 2em;
 }
@@ -311,14 +279,40 @@ form.new_micropost textarea {
   margin-bottom: 0;
 }
 
-.logo{
-    width: 80px;
+/**** USER LIST *********/
+
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
+
+
+/****** miscellaneous  ****/
+
+.field_with_errors input {
+  border: 2px solid red;
+}
+
+.postField{
+    width: 430px;
+}
+
+label{
+    font-size: 1.5em;
+    color: #666666;
 }
 
 input{
     padding-left: 15px;
     height: 2.5em;
     font-size: 1.0em;
+}
+
+.logo{
+    width: 80px;
 }
 
 .smallHint{
@@ -330,7 +324,7 @@ input{
 
 }
 
-.inputCel .button{
+.button{
     width: 150px;
     height: 50px;
 }
