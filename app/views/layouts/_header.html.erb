@@ -1,12 +1,10 @@
 <header>
-	<%= logo %>
-	<nav class="round">
-		<ul>
-			<li><%= link_to "Home", home_path %></li>
+    <%= logo %>
+    <nav class="round">
+        <ul>
+            <li><%= link_to "Home", home_path %></li>
             <% if signed_in? %>
-
-                    <li><%= link_to "Users", users_path %></li>
-
+                <li><%= link_to "Users", users_path %></li>
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
@@ -14,6 +12,6 @@
             <% if !signed_in? %>
                 <li><%= link_to "Sign in", signin_path %></li>
             <% end %>
-		</ul>
-	</nav>
+        </ul>
+    </nav>
 </header>

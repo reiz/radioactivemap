@@ -14,6 +14,9 @@ ActiveRecord::Schema.define(:version => 20110321011810) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content",    :limit => 240, :null => false
+    t.float    "lat"
+    t.float    "lon"
+    t.float    "msph"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

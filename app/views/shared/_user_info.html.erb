@@ -1,12 +1,12 @@
 <div class="user_info">
-  <a href="<%= user_path (current_user.username) %>">
+  <a href="<%= user_path (@user.username) %>">
     <div style="float:left;">
-        <%= gravatar_for current_user, :size => 40 %>
+        <%= gravatar_for @user, :size => 40 %>
     </div>
     <div style="padding-left: 10px; display:inline-block;">
-      <%= current_user.fullname %><br/>
+      <%= @user.fullname %><br/>
       <span style="font-size: 0.8em;">
-        <%= pluralize(current_user.microposts.count, "micropost") %>
+        <%= pluralize(@user.microposts.count, "micropost") %>
       </span>
     </div>
   </a>

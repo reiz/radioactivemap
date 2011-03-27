@@ -6,6 +6,12 @@
     <span>
       <%= link_to feed_item.user.fullname, feed_item.user, :class => "user" %>
     </span><br/>
+    <% unless feed_item.msph.nil? %>
+        <span class="msphFeed">
+          <%= feed_item.msph %> µSv/H.
+        </span>
+    <% end %>
+    <% %>
     <span >
       <%= feed_item.content %>
     </span><br/>

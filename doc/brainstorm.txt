@@ -17,3 +17,7 @@ Measurement
  - Lon
  - Microsevert_Per_hour
  - Image
+
+GMaps
+ - infowindowsimple
+ -
