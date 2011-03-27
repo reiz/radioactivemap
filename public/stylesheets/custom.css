@@ -212,10 +212,10 @@ a.signup_button {
 }
 
 
-/******* PROFILE, MICROPOST ******/
+/******* PROFILE, measurements ******/
 
 
-.microposts {
+.measurements {
   margin-top: 1em;
   width: 100%;
 }
@@ -232,19 +232,19 @@ a.signup_button {
     width: 50px;
 }
 
-.micropost {
+.measurement {
   vertical-align: top;
   padding: 0px;
 }
 
-.posting .micropost{
+.posting .measurement{
     display: table-cell;
     border-top: 1px solid #ccc;
     vertical-align: top;
     padding-left: 7px;
 }
 
-.micropost .user{
+.measurements .user{
     font-size: 1.1em;
     font-weight: bold;
     color: black;
@@ -267,15 +267,15 @@ div.user_info span.user_name {
   position: absolute;
 }
 
-div.user_info span.microposts {
+div.user_info span.measurements {
   font-size: 80%;
 }
 
-form.new_micropost {
+form.new_measurements {
   margin-bottom: 2em;
 }
 
-form.new_micropost textarea {
+form.new_measurements textarea {
   height: 4em;
   margin-bottom: 0;
 }
@@ -318,6 +318,7 @@ ul.users {
 
 .postField{
     width: 430px;
+    height: 80px;
     margin: 0;
 }
 

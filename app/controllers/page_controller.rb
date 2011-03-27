@@ -1,5 +1,5 @@
 class PageController < ApplicationController
-  
+
   def contact
   end
   
@@ -7,10 +7,10 @@ class PageController < ApplicationController
   end
 
   def home
-    @title = "Home"
     if signed_in?
-      @micropost = Micropost.new if signed_in?
+      @measurement = Measurement.new if signed_in?
       @feed_items = current_user.feed.paginate(:page => params[:page])
+      @user = current_user
     end
   end
 

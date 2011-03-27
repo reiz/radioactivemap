@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
                        :length        => { :within => 5..40 }
 
 
-  has_many :microposts, :dependent => :destroy
+  has_many :measurements, :dependent => :destroy
 
   has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
 
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Micropost.from_users_followed_by(self)
+    Measurement.from_users_followed_by(self)
   end
 
   private 

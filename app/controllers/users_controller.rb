@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
-    @microposts = @user.microposts.paginate(:page => params[:page])
+    @measurements = @user.measurements.paginate(:page => params[:page])
   end
 
   def index

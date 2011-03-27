@@ -12,7 +12,8 @@
 
 ActiveRecord::Schema.define(:version => 20110321011810) do
 
-  create_table "microposts", :force => true do |t|
+  create_table "measurements", :force => true do |t|
+    t.string   "name",       :limit => 200, :null => false
     t.string   "content",    :limit => 240, :null => false
     t.float    "lat"
     t.float    "lon"
@@ -22,7 +23,8 @@ ActiveRecord::Schema.define(:version => 20110321011810) do
     t.datetime "updated_at"
   end
 
-  add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
+  add_index "measurements", ["user_id"], :name => "index_measurements_on_user_id"
+  add_index "measurements", ["name"], :name => "index_measurements_on_name"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"

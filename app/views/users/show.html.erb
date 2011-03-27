@@ -1,11 +1,11 @@
 
     <div class="content" >
         <%= render 'follow_form' if signed_in? %>
-        <% unless @user.microposts.empty? %>
-            <div style="display: table;" class="microposts">
-                <%= render :partial => 'shared/feed_item', :collection => @microposts %>
+        <% unless @user.measurements.empty? %>
+            <div style="display: table;" class="measurements">
+                <%= render :partial => 'shared/feed_item', :collection => @measurements %>
             </div>
-            <%= will_paginate @microposts %>
+            <%= will_paginate @measurements %>
         <% end %>
     </div>
     <div class="sidebar round">

@@ -33,6 +33,9 @@ function placeMarker(location) {
     document.getElementById("ShowLatLon").style.display = "block";
     document.getElementById("show_lat").value = location.lat();
     document.getElementById("show_lon").value = location.lng();
+    document.getElementById("measurement_lat").value = location.lat();
+    document.getElementById("measurement_lon").value = location.lng();
+
 }
 
 

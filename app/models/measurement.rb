@@ -1,4 +1,4 @@
-class Micropost < ActiveRecord::Base
+class Measurement < ActiveRecord::Base
 
   attr_accessible :content, :msph, :lat, :lon
 
@@ -7,10 +7,12 @@ class Micropost < ActiveRecord::Base
   validates :content, :presence => true, :length => { :maximum => 240 }
   validates :user_id, :presence => true
 
-  default_scope :order => 'microposts.created_at DESC'
+  default_scope :order => 'measurements.created_at DESC'
 
-  # Return microposts from the users being followed by the given user.
+  # Return measurements from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
+
+  before_save :create_random_name
 
   private
 
@@ -20,6 +22,12 @@ class Micropost < ActiveRecord::Base
       followed_ids = %(SELECT followed_id FROM relationships
                        WHERE follower_id = :user_id)
       where("user_id IN (#{followed_ids}) OR user_id = :user_id", { :user_id => user })
+    end
+
+    def create_random_name
+        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+        self.name = ""
+        62.times { self.name << chars[rand(chars.size)] }
     end
 
 end

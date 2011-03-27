@@ -1,10 +1,10 @@
-<h1>Radioactive Map</h1>
 
 <% if signed_in? %>
+
     <script type="text/javascript" src="/javascripts/gmap.js" ></script>
     <div class="content" >
-        <h1 class="micropost">What's up?</h1>
-        <%= render 'shared/micropost_form' %>
+        <h1 class="measurement">What's your radiation level?</h1>
+        <%= render 'shared/measurement_form' %>
         <%= render 'shared/feed' %>
     </div>
     <div class="sidebar round">
@@ -13,6 +13,7 @@
     </div>
 
 <% else %>
+
     <script type="text/javascript" src="/javascripts/googleMaps.js" ></script>
     <p style="text-align: center;">
         This is the home page for the
@@ -24,4 +25,5 @@
     <p>
         <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
     </p>
+
 <% end %>

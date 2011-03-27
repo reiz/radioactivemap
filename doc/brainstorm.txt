@@ -16,8 +16,14 @@ Measurement
  - Lat
  - Lon
  - Microsevert_Per_hour
+ - GeigerCounter
  - Image
+ - Comments
 
-GMaps
- - infowindowsimple
- -
+GeigerCounter
+ - ID
+ - Name
+ - Image
+ - Abweichung
+ - Alter
+ - Hersteller
