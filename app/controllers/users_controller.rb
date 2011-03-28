@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate, :except => [:show, :new, :create]
-  before_filter :correct_user, :only   => [:edit, :update]
+  before_filter :correct_user, :only   => [:edit, :update, :geigercounter]
   before_filter :admin_user,   :only   => :destroy
 
   def signup
@@ -71,6 +71,18 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:id])
     @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
+  end
+
+  def geigercounter
+    @title = "Geiger counter"
+    @user = User.find_by_username(params[:id])
+    @geigercounter = @user.geigercounter
+    if @geigercounter.nil?
+      @geigercounter = Geigercounter.new
+      render "new_geiger"
+    else
+      render "show_geiger"
+    end
   end
 
   private

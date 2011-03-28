@@ -26,6 +26,23 @@ ActiveRecord::Schema.define(:version => 20110321011810) do
   add_index "measurements", ["user_id"], :name => "index_measurements_on_user_id"
   add_index "measurements", ["name"], :name => "index_measurements_on_name"
 
+  create_table "geigercounters", :force => true do |t|
+    t.string   "name",           :limit => 100, :null => false
+    t.integer  "tolerance",      :null => false, :default => 25
+    t.string   "manufacturer"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "content",        :limit => 240,  :null => false
+    t.integer  "measurement_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"

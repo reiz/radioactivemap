@@ -166,6 +166,13 @@ a.signup_button {
     display: table-cell;
 }
 
+.inputShowCel{
+    padding-left: 5px;
+    width: 300px;
+    display: table-cell;
+    font-size: 1.2em;
+}
+
 .inputCel input{
     width: 270px;
 }
@@ -288,6 +295,29 @@ ul.users {
 
 .users li {
   list-style: none;
+}
+
+
+/**** GEIGER COUNTER *********/
+
+.geiger{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.geigerImage{
+    float: left;
+    padding: 5px;
+}
+
+.geigerInfo{
+    float: left;
+    padding: 5px;
+}
+
+.geigerAction{
+    clear: both;
+    padding: 5px;
 }
 
 

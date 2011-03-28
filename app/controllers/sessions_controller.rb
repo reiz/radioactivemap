@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       render "new"
     else
       sign_in user
-      redirect_back_or current_user
+      redirect_back_or "/home"
     end
   end
   

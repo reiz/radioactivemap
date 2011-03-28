@@ -1,0 +1,47 @@
+
+
+        <div style="display:table-row;">
+            <div class="labelCel">
+                <label>Name:</label>
+            </div>
+            <div class="inputShowCel">
+                <%= @geigercounter.name %>
+            </div>
+            <div class="hintCel smallHint">
+
+            </div>
+        </div>
+
+        <div style="display:table-row;">
+            <div class="labelCel">
+                <label>Tolerance:</label>
+            </div>
+            <div class="inputShowCel">
+                <%= @geigercounter.tolerance %> %
+            </div>
+            <div class="hintCel smallHint">
+
+            </div>
+        </div>
+
+        <div style="display:table-row;">
+            <div class="labelCel">
+                <label>Manufacturer:</label>
+            </div>
+            <div class="inputShowCel">
+                <%= @geigercounter.manufacturer %>
+            </div>
+            <div class="hintCel smallHint">
+
+            </div>
+        </div>
+
+        <div style="display:table-row;">
+            <div class="labelCel"></div>
+            <div class="inputCel">
+                <%= form_for @geigercounter, :html => { :method => :delete } do |f| %>
+                  <%= f.submit "Remove", :class => "button", :confirm => "You are sure?", :title => "Delete #{@geigercounter.name}" %>
+                <% end %>
+            </div>
+            <div class="hintCel smallHint"></div>
+        </div>

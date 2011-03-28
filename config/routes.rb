@@ -7,10 +7,16 @@ Radioactivemap::Application.routes.draw do
       get :following, :followers
     end
   end
+  resources :users do
+    member do
+      get :geigercounter
+    end
+  end
 
   resources :sessions,        :only => [:new, :create, :destroy]
   resources :measurements,    :only => [:create, :destroy]
   resources :relationships,   :only => [:create, :destroy]
+  resources :geigercounters,  :only => [:create, :destroy]
 
   match '/signup',    :to => 'users#new'
   match '/signin',    :to => 'sessions#new'
