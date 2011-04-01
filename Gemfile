@@ -3,9 +3,10 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.5'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
+gem 'faker', '0.3.1', :require => false
 gem 'pg', '0.10.1'
-#gem 'aws-s3', '0.6.2'
 gem 's3', '0.3.8'
+#gem 'aws-s3', '0.6.2'
 #gem 'postgres-pr', '0.6.3'
 #gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 

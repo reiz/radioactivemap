@@ -1,4 +1,4 @@
-require 'faker'
+
 
 namespace :db  => :environment do
   require 'faker'

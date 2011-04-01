@@ -4,15 +4,14 @@
     <bookmark url="file://$PROJECT_DIR$/app/views/users/new_geiger.html.erb" />
   </component>
   <component name="ChangeListManager">
-    <list id="e7a1d5dd-fe3a-43d8-8d2e-8c7ccf99d17d" name="notCommit" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-    </list>
+    <list id="e7a1d5dd-fe3a-43d8-8d2e-8c7ccf99d17d" name="notCommit" comment="" />
     <list default="true" id="f3ceecac-663a-419c-8b62-1064382bbe1b" name="default" comment="GeigerCounter">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/radioactivemap.iml" afterPath="$PROJECT_DIR$/.idea/radioactivemap.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/sample_data.rake" afterPath="$PROJECT_DIR$/lib/tasks/sample_data.rake" />
     </list>
     <ignored path="radioactivemap.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/log/development.log" changelist="f3ceecac-663a-419c-8b62-1064382bbe1b" time="1301272197560" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +71,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="4" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -99,7 +98,7 @@
       <file leaf-file-name="sample_data.rake" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/tasks/sample_data.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="146" selection-end="146" vertical-scroll-proportion="0.09210526">
+            <state line="4" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="0.05263158">
               <folding />
             </state>
           </provider>
@@ -143,7 +142,6 @@
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/_user.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/app/views/users/new_geiger.html.erb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
@@ -152,6 +150,7 @@
         <option value="$PROJECT_DIR$/app/controllers/geigercounters_controller.rb" />
         <option value="$PROJECT_DIR$/doc/brainstorm.txt" />
         <option value="$PROJECT_DIR$/config/environment.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/lib/tasks/sample_data.rake" />
       </list>
     </option>
@@ -640,13 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="4" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="16" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.0">
@@ -666,9 +658,16 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/tasks/sample_data.rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="146" selection-end="146" vertical-scroll-proportion="0.09210526">
+        <state line="4" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="0.05263158">
           <folding />
         </state>
       </provider>
