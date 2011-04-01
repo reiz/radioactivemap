@@ -1,6 +1,6 @@
 class Geigercounter < ActiveRecord::Base
 
-  attr_accessible :name, :tolerance, :manufacturer
+  attr_accessible :name, :tolerance, :manufacturer, :url, :filename
 
   validates :user_id, :presence => true
 

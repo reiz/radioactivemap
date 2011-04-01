@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20110321011810) do
     t.string   "name",           :limit => 100, :null => false
     t.integer  "tolerance",      :null => false, :default => 25
     t.string   "manufacturer"
+    t.string   "url"
+    t.string   "filename"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

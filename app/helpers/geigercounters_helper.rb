@@ -1,0 +1,2 @@
+module GeigercountersHelper
+end

@@ -5,48 +5,61 @@
             <%= render 'shared/error_messages', :object => f.object %>
         </div>
 
-        <div style="display:table-row;">
+        <div style="display: table;" >
+          <div style="display:table-row;">
             <div class="labelCel">
-                <%= f.label :name %>
+              <label>Image</label>
             </div>
-            <div class="inputCel">
-                <%= f.text_field :name, :class => "round" %>
+            <div class="inputCel" style="width: 400px;" >
+              <%= file_field 'upload', 'datafile'  %>
             </div>
-            <div class="hintCel smallHint">
-                A unique name for your geiger
-            </div>
+          </div>
         </div>
 
-        <div style="display:table-row;">
+        <div style="display: table;">
+          <div style="display:table-row;">
             <div class="labelCel">
-                <%= f.label :tolerance %>
+              <%= f.label :name %>
             </div>
             <div class="inputCel">
-                <%= f.text_field :tolerance, :class => "round" %>
+              <%= f.text_field :name, :class => "round" %>
             </div>
             <div class="hintCel smallHint">
-                How many percent tolerance have your geiger?
+              A unique name for your geiger
             </div>
-        </div>
+          </div>
 
-        <div style="display:table-row;">
+          <div style="display:table-row;">
             <div class="labelCel">
-                <%= f.label :manufacturer %>
+              <%= f.label :tolerance %>
             </div>
             <div class="inputCel">
-                <%= f.text_field :manufacturer, :class => "round" %>
+              <%= f.text_field :tolerance, :class => "round" %>
             </div>
             <div class="hintCel smallHint">
-                Do you know the manufacturer?
+              How many percent tolerance have your geiger?
             </div>
-        </div>
+          </div>
 
-        <div style="display:table-row;">
+          <div style="display:table-row;">
+            <div class="labelCel">
+              <%= f.label :manufacturer %>
+            </div>
+            <div class="inputCel">
+              <%= f.text_field :manufacturer, :class => "round" %>
+            </div>
+            <div class="hintCel smallHint">
+              Do you know the manufacturer?
+            </div>
+          </div>
+
+          <div style="display:table-row;">
             <div class="labelCel"></div>
             <div class="inputCel">
-                <%= f.submit "Create Geiger", :class => "button" %>
+              <%= f.submit "Create Geiger", :class => "button" %>
             </div>
             <div class="hintCel smallHint"></div>
+          </div>
         </div>
 
     <% end  %>

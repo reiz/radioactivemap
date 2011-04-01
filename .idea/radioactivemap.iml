@@ -60,6 +60,12 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="s3" version="0.3.8" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="spork" version="0.9.0.rc4" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -125,6 +131,10 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] i18n (v0.5.0, /opt/local/lib/ruby1.9/gems/1.9.1/gems/i18n-0.5.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.9, /opt/local/lib/ruby1.9/gems/1.9.1/gems/treetop-1.4.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] builder (v2.1.2, /Users/robert/.gem/ruby/1.9.1/gems/builder-2.1.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] aws-s3 (v0.6.2, /opt/local/lib/ruby1.9/gems/1.9.1/gems/aws-s3-0.6.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] xml-simple (v1.0.15, /opt/local/lib/ruby1.9/gems/1.9.1/gems/xml-simple-1.0.15)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] s3 (v0.3.8, /opt/local/lib/ruby1.9/gems/1.9.1/gems/s3-0.3.8)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] proxies (v0.2.1, /opt/local/lib/ruby1.9/gems/1.9.1/gems/proxies-0.2.1)" level="application" />
   </component>
 </module>
 

@@ -1,7 +1,8 @@
 
 - E-Mail Server aufsetzen
 - Passwod forgot function
-- integrate google maps
+- Measurement View
+
 - Haroku
 - Design/Logo besorgen
 
