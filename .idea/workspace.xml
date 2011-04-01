@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list id="e7a1d5dd-fe3a-43d8-8d2e-8c7ccf99d17d" name="notCommit" comment="" />
     <list default="true" id="f3ceecac-663a-419c-8b62-1064382bbe1b" name="default" comment="GeigerCounter">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/empty.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/page/home.html.erb" afterPath="$PROJECT_DIR$/app/views/page/home.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/empty.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/empty.html.erb" />
     </list>
     <ignored path="radioactivemap.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,7 +88,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="7" selection-start="83" selection-end="83" vertical-scroll-proportion="0.13468014">
+            <state line="11" column="0" selection-start="300" selection-end="300" vertical-scroll-proportion="0.14814815">
               <folding />
             </state>
           </provider>
@@ -99,7 +97,7 @@
       <file leaf-file-name="empty.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/empty.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -711,14 +709,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/empty.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+        <state line="13" column="0" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="7" selection-start="83" selection-end="83" vertical-scroll-proportion="0.13468014">
+        <state line="11" column="0" selection-start="300" selection-end="300" vertical-scroll-proportion="0.14814815">
           <folding />
         </state>
       </provider>
