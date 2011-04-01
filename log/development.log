@@ -51186,3 +51186,1325 @@ Completed 200 OK in 114ms (Views: 54.8ms | ActiveRecord: 7.9ms)
 [0m
   [1m[35mSQL (0.3ms)[0m  SELECT version FROM "schema_migrations"
   [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110321011810')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-01 07:39:55 -0700
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW client_min_messages[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'panic'
+  [1m[36mSQL (0.1ms)[0m  [1mSET standard_conforming_strings = on[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'notice'
+  [1m[36mSQL (0.5ms)[0m  [1mSET time zone 'UTC'[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TIME ZONE
+  Processing by PageController#home as HTML
+  [1m[36mSQL (4.4ms)[0m  [1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35mSQL (2.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"measurements"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mMeasurement Load (1.9ms)[0m  SELECT "measurements".* FROM "measurements" WHERE (user_id IN (SELECT followed_id FROM relationships
+ WHERE follower_id = 1) OR user_id = 1) ORDER BY measurements.created_at DESC LIMIT 30 OFFSET 0
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered shared/_measurement_form.html.erb (7.7ms)
+Rendered shared/_feed.html.erb (0.3ms)
+Rendered shared/_user_info.html.erb (0.6ms)
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "measurements" WHERE ("measurements".user_id = 1)[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".follower_id WHERE (("relationships".followed_id = 1))
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".followed_id WHERE (("relationships".follower_id = 1))[0m
+Rendered shared/_stats.html.erb (25.3ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.4ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered page/home.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 219ms (Views: 52.2ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 07:40:01 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mGeigercounter Load (0.7ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.1ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/show_geiger.html.erb within layouts/application (51.6ms)
+Completed 200 OK in 139ms (Views: 54.5ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/geigercounters/2" for 127.0.0.1 at 2011-04-01 07:40:05 -0700
+  Processing by GeigercountersController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "commit"=>"Remove", "id"=>"2"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (6.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mGeigercounter Load (0.6ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE "geigercounters"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mDELETE FROM "geigercounters" WHERE "geigercounters"."id" = 2[0m
+  [1m[35mSQL (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/reiz/geigercounter
+Completed 302 Found in 172ms
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 07:40:05 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mGeigercounter Load (0.4ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.3ms)
+Rendered layouts/_footer.html.erb (1.3ms)
+Rendered users/new_geiger.html.erb within layouts/application (74.4ms)
+Completed 200 OK in 168ms (Views: 77.8ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 07:40:17 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000105102ba0 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-77859-tdrdvh>>}, "geigercounter"=>{"name"=>"Geiger", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[35mSQL (1.4ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed   in 1018ms
+
+S3::Error::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided. Check your key and signing method.):
+  app/controllers/geigercounters_controller.rb:50:in `upload_to_s3'
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 07:48:17 -0700
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW client_min_messages[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'panic'
+  [1m[36mSQL (0.1ms)[0m  [1mSET standard_conforming_strings = on[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'notice'
+  [1m[36mSQL (0.5ms)[0m  [1mSET time zone 'UTC'[0m
+  [1m[35mSQL (1.2ms)[0m  SHOW TIME ZONE
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000100ac7708 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78193-iteszk>>}, "geigercounter"=>{"name"=>"Geiger", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (5.2ms)[0m  [1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35mSQL (3.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (4.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed   in 183095ms
+
+S3::Error::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided. Check your key and signing method.):
+  app/controllers/geigercounters_controller.rb:49:in `upload_to_s3'
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (46.4ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.7ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 07:51:47 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x0000010357cc00 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78193-1yck07j>>}, "geigercounter"=>{"name"=>"Geiger", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed   in 52119ms
+
+S3::Error::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided. Check your key and signing method.):
+  app/controllers/geigercounters_controller.rb:49:in `upload_to_s3'
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 08:22:34 -0700
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW client_min_messages[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'panic'
+  [1m[36mSQL (0.1ms)[0m  [1mSET standard_conforming_strings = on[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'notice'
+  [1m[36mSQL (0.5ms)[0m  [1mSET time zone 'UTC'[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TIME ZONE
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[36mSQL (4.0ms)[0m  [1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35mSQL (2.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mGeigercounter Load (0.7ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.1ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/new_geiger.html.erb within layouts/application (75.7ms)
+Completed 200 OK in 225ms (Views: 80.0ms | ActiveRecord: 12.4ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:22:42 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x000001035a2748 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78606-1fpad3k>>}, "geigercounter"=>{"name"=>"Harry", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed   in 88ms
+
+NameError (uninitialized constant GeigercountersController::S3):
+  app/controllers/geigercounters_controller.rb:45:in `upload_to_s3'
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.4ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+
+
+Started GET "/users/reiz" for 127.0.0.1 at 2011-04-01 08:38:21 -0700
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW client_min_messages[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'panic'
+  [1m[36mSQL (0.1ms)[0m  [1mSET standard_conforming_strings = on[0m
+  [1m[35mSQL (0.1ms)[0m  SET client_min_messages TO 'notice'
+  [1m[36mSQL (0.5ms)[0m  [1mSET time zone 'UTC'[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TIME ZONE
+  Processing by UsersController#show as HTML
+  Parameters: {"key"=>:username, "id"=>"reiz"}
+  [1m[36mSQL (4.6ms)[0m  [1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35mSQL (2.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mMeasurement Load (1.4ms)[0m  [1mSELECT "measurements".* FROM "measurements" WHERE ("measurements".user_id = 1) ORDER BY measurements.created_at DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered users/_follow_form.html.erb (0.4ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"measurements"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM "measurements" WHERE ("measurements".user_id = 1)
+Rendered shared/_user_info.html.erb (0.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "measurements" WHERE ("measurements".user_id = 1)[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".follower_id WHERE (("relationships".followed_id = 1))
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".followed_id WHERE (("relationships".follower_id = 1))[0m
+Rendered shared/_stats.html.erb (22.2ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.6ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/show.html.erb within layouts/application (86.1ms)
+Completed 200 OK in 227ms (Views: 86.3ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 08:38:22 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mGeigercounter Load (0.7ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/new_geiger.html.erb within layouts/application (74.1ms)
+Completed 200 OK in 201ms (Views: 77.8ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:38:31 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000101628750 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-19ep9k4>>}, "geigercounter"=>{"name"=>"Hary", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed   in 87ms
+
+NoMethodError (undefined method `original_filename' for #<ActiveSupport::HashWithIndifferentAccess:0x00000101628728>):
+  app/controllers/geigercounters_controller.rb:10:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:48:46 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000103327d88 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-16w1637>>}, "geigercounter"=>{"name"=>"Hary", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed   in 82ms
+
+NoMethodError (undefined method `read' for #<ActiveSupport::HashWithIndifferentAccess:0x00000103327d60>):
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.2ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.7ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:51:11 -0700
+
+SyntaxError (/Users/robert/workspace/ruby/radioactivemap/app/controllers/geigercounters_controller.rb:17: syntax error, unexpected ',', expecting ')'
+    AWS::S3::S3Object.store(, params[:upload].read, BUCKET...
+                             ^
+/Users/robert/workspace/ruby/radioactivemap/app/controllers/geigercounters_controller.rb:17: dynamic constant assignment
+..., params[:upload].read, BUCKET, :access => :public_read)
+...                               ^
+/Users/robert/workspace/ruby/radioactivemap/app/controllers/geigercounters_controller.rb:17: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...pload].read, BUCKET, :access => :public_read)
+...                               ^):
+  
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:51:31 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x000001014a0ef0 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-16j7p2y>>}, "geigercounter"=>{"name"=>"Hary", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed   in 84ms
+
+NoMethodError (undefined method `original_filename' for #<ActiveSupport::HashWithIndifferentAccess:0x000001014a0cc0>):
+  app/controllers/geigercounters_controller.rb:15:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:52:47 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x000001032d8aa8 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-1ggc5xh>>}, "geigercounter"=>{"name"=>"Hary", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[35mSQL (1.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed   in 86ms
+
+NoMethodError (undefined method `read' for #<ActiveSupport::HashWithIndifferentAccess:0x000001032d8a80>):
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.1ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:56:24 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x000001015f38c0 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-do9c3l>>}, "geigercounter"=>{"name"=>"Hary", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed   in 86ms
+
+ArgumentError (wrong number of arguments (0 for 1..3)):
+  app/controllers/geigercounters_controller.rb:13:in `initialize'
+  app/controllers/geigercounters_controller.rb:13:in `open'
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.3ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:58:24 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x000001032f2f70 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-gflitn>>}, "geigercounter"=>{"name"=>"Hary", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (4.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed   in 107ms
+
+NameError (uninitialized constant GeigercountersController::BUCKET):
+  app/controllers/geigercounters_controller.rb:13:in `create'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.1ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 08:59:11 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000101602c80 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-1oyh0i9>>}, "geigercounter"=>{"name"=>"Hary", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mGeigercounter Load (0.4ms)[0m  [1mSELECT "geigercounters"."id" FROM "geigercounters" WHERE ("geigercounters"."name" = 'Hary') LIMIT 1[0m
+  [1m[35mPK and serial sequence (4.8ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"geigercounters"'::regclass
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "geigercounters" ("name", "tolerance", "manufacturer", "url", "filename", "user_id", "created_at", "updated_at") VALUES ('Hary', 25, '', 'test', 'radio.jpg', 1, '2011-04-01 15:59:13.147412', '2011-04-01 15:59:13.147412') RETURNING "id"[0m
+  [1m[35mSQL (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/reiz/geigercounter
+Completed 302 Found in 2014ms
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 08:59:13 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mGeigercounter Load (1.3ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/show_geiger.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 181ms (Views: 29.5ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/users/reiz/test" for 127.0.0.1 at 2011-04-01 08:59:13 -0700
+
+ActionController::RoutingError (No route matches "/users/reiz/test"):
+  
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.3ms)
+
+
+Started GET "/users/reiz/test" for 127.0.0.1 at 2011-04-01 08:59:13 -0700
+
+ActionController::RoutingError (No route matches "/users/reiz/test"):
+  
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/geigercounters/3" for 127.0.0.1 at 2011-04-01 09:13:27 -0700
+  Processing by GeigercountersController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "commit"=>"Remove", "id"=>"3"}
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mGeigercounter Load (1.5ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE "geigercounters"."id" = 3 LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "geigercounters" WHERE "geigercounters"."id" = 3
+  [1m[36mSQL (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/reiz/geigercounter
+Completed 302 Found in 137ms
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 09:13:27 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mGeigercounter Load (0.4ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered users/new_geiger.html.erb within layouts/application (24.3ms)
+Completed   in 132ms
+
+ActionView::Template::Error (undefined method `update' for "datafile":String):
+    11:               <label>Image</label>
+    12:             </div>
+    13:             <div class="inputCel" style="width: 400px;" >
+    14:               <%= file_field_tag 'upload', 'datafile'  %>
+    15:             </div>
+    16:           </div>
+    17:         </div>
+  app/views/users/new_geiger.html.erb:14:in `block in _app_views_users_new_geiger_html_erb__1179022757815668574_2173874820__4123628455752810743'
+  app/views/users/new_geiger.html.erb:2:in `_app_views_users_new_geiger_html_erb__1179022757815668574_2173874820__4123628455752810743'
+  app/controllers/users_controller.rb:82:in `geigercounter'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.7ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.9ms)
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 09:14:30 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mGeigercounter Load (2.6ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+Rendered layouts/_header.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (0.7ms)
+Rendered users/new_geiger.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 182ms (Views: 23.2ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 09:14:43 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x000001032b2970 @original_filename="japan.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"japan.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-10w3swt>>}, "geigercounter"=>{"name"=>"Harry", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[35mSQL (1.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Object#returning has been deprecated in favor of Object#tap. (called from create at /Users/robert/workspace/ruby/radioactivemap/app/controllers/geigercounters_controller.rb:13)
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mGeigercounter Load (0.3ms)[0m  SELECT "geigercounters"."id" FROM "geigercounters" WHERE ("geigercounters"."name" = 'Harry') LIMIT 1
+  [1m[36mPK and serial sequence (2.9ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"geigercounters"'::regclass
+[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "geigercounters" ("name", "tolerance", "manufacturer", "url", "filename", "user_id", "created_at", "updated_at") VALUES ('Harry', 25, '', 'http://s3.amazonaws.com/RoR1/japan.jpg', 'japan.jpg', 1, '2011-04-01 16:14:44.622195', '2011-04-01 16:14:44.622195') RETURNING "id"
+  [1m[36mSQL (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/reiz/geigercounter
+Completed 302 Found in 1240ms
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 09:14:44 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mGeigercounter Load (0.6ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.1ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/show_geiger.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 128ms (Views: 26.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/reiz" for 127.0.0.1 at 2011-04-01 09:59:53 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"key"=>:username, "id"=>"reiz"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mMeasurement Load (0.5ms)[0m  SELECT "measurements".* FROM "measurements" WHERE ("measurements".user_id = 1) ORDER BY measurements.created_at DESC LIMIT 30 OFFSET 0
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered users/_follow_form.html.erb (0.5ms)
+  [1m[35mSQL (0.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"measurements"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "measurements" WHERE ("measurements".user_id = 1)[0m
+Rendered shared/_user_info.html.erb (0.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "measurements" WHERE ("measurements".user_id = 1)
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".follower_id WHERE (("relationships".followed_id = 1))[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".followed_id WHERE (("relationships".follower_id = 1))
+Rendered shared/_stats.html.erb (23.2ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (3.2ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/show.html.erb within layouts/application (98.0ms)
+Completed 200 OK in 164ms (Views: 98.9ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 10:00:26 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mGeigercounter Load (0.4ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+Rendered layouts/_header.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (0.5ms)
+Rendered users/show_geiger.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 130ms (Views: 26.6ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/geigercounters/4" for 127.0.0.1 at 2011-04-01 10:00:31 -0700
+  Processing by GeigercountersController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "commit"=>"Remove", "id"=>"4"}
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mGeigercounter Load (0.4ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE "geigercounters"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed   in 462ms
+
+AWS::S3::NoSuchBucket (The specified bucket does not exist):
+  app/controllers/geigercounters_controller.rb:27:in `destroy'
+
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.1ms)
+Rendered /opt/local/lib/ruby1.9/gems/1.9.1/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.6ms)
+
+
+Started GET "/users/reiz" for 127.0.0.1 at 2011-04-01 10:04:06 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"key"=>:username, "id"=>"reiz"}
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mMeasurement Load (1.7ms)[0m  SELECT "measurements".* FROM "measurements" WHERE ("measurements".user_id = 1) ORDER BY measurements.created_at DESC LIMIT 30 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered users/_follow_form.html.erb (1.1ms)
+  [1m[35mSQL (0.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"measurements"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT COUNT(*) FROM "measurements" WHERE ("measurements".user_id = 1)[0m
+Rendered shared/_user_info.html.erb (0.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "measurements" WHERE ("measurements".user_id = 1)
+  [1m[36mSQL (1.4ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".follower_id WHERE (("relationships".followed_id = 1))[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users".id = "relationships".followed_id WHERE (("relationships".follower_id = 1))
+Rendered shared/_stats.html.erb (27.3ms)
+Rendered layouts/_stylesheets.html.erb (10.1ms)
+Rendered layouts/_header.html.erb (3.9ms)
+Rendered layouts/_footer.html.erb (0.7ms)
+Rendered users/show.html.erb within layouts/application (68.8ms)
+Completed 200 OK in 185ms (Views: 67.9ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 10:04:07 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mGeigercounter Load (0.6ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.2ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/show_geiger.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 136ms (Views: 27.5ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/geigercounters/4" for 127.0.0.1 at 2011-04-01 10:04:10 -0700
+  Processing by GeigercountersController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "commit"=>"Remove", "id"=>"4"}
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mGeigercounter Load (0.5ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE "geigercounters"."id" = 4 LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "geigercounters" WHERE "geigercounters"."id" = 4
+  [1m[36mSQL (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/reiz/geigercounter
+Completed 302 Found in 742ms
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 10:04:11 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mGeigercounter Load (0.7ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/new_geiger.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 138ms (Views: 21.6ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/geigercounters" for 127.0.0.1 at 2011-04-01 10:26:54 -0700
+  Processing by GeigercountersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "upload"=>{"datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000100eae290 @original_filename="radio.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"upload[datafile]\"; filename=\"radio.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/Q0/Q0reEIQ-EGmTIOmCmudj1E+++TI/-Tmp-/RackMultipart20110401-78805-z1xcl3>>}, "geigercounter"=>{"name"=>"Harry", "tolerance"=>"25", "manufacturer"=>""}, "commit"=>"Create Geiger"}
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Object#returning has been deprecated in favor of Object#tap. (called from create at /Users/robert/workspace/ruby/radioactivemap/app/controllers/geigercounters_controller.rb:14)
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mGeigercounter Load (0.4ms)[0m  [1mSELECT "geigercounters"."id" FROM "geigercounters" WHERE ("geigercounters"."name" = 'Harry') LIMIT 1[0m
+  [1m[35mPK and serial sequence (3.0ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"geigercounters"'::regclass
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "geigercounters" ("name", "tolerance", "manufacturer", "url", "filename", "user_id", "created_at", "updated_at") VALUES ('Harry', 25, '', 'http://s3.amazonaws.com/RoR1/wcoeieehomugzqaoninbradio.jpg', 'wcoeieehomugzqaoninbradio.jpg', 1, '2011-04-01 17:26:57.838744', '2011-04-01 17:26:57.838744') RETURNING "id"[0m
+  [1m[35mSQL (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/reiz/geigercounter
+Completed 302 Found in 3095ms
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 10:26:57 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mGeigercounter Load (0.4ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+Rendered layouts/_header.html.erb (2.2ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/show_geiger.html.erb within layouts/application (69.8ms)
+Completed 200 OK in 137ms (Views: 72.5ms | ActiveRecord: 13.6ms)
+
+
+Started POST "/geigercounters/5" for 127.0.0.1 at 2011-04-01 10:27:39 -0700
+  Processing by GeigercountersController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rmCfn5Ea1zbYP57HBaoQmjUE+BQhVvRgSdpDdyLRsLc=", "commit"=>"Remove", "id"=>"5"}
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mGeigercounter Load (0.4ms)[0m  SELECT "geigercounters".* FROM "geigercounters" WHERE "geigercounters"."id" = 5 LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "geigercounters" WHERE "geigercounters"."id" = 5
+  [1m[36mSQL (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/reiz/geigercounter
+Completed 302 Found in 622ms
+
+
+Started GET "/users/reiz/geigercounter" for 127.0.0.1 at 2011-04-01 10:27:40 -0700
+  Processing by UsersController#geigercounter as HTML
+  Parameters: {"id"=>"reiz"}
+  [1m[35mSQL (0.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'reiz' LIMIT 1
+  [1m[36mGeigercounter Load (0.4ms)[0m  [1mSELECT "geigercounters".* FROM "geigercounters" WHERE ("geigercounters".user_id = 1) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"geigercounters"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+Rendered layouts/_header.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Rendered users/new_geiger.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 125ms (Views: 20.9ms | ActiveRecord: 12.4ms)
