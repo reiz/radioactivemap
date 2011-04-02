@@ -3,7 +3,7 @@ class GeigercountersController < ApplicationController
   before_filter :authenticate
   before_filter :authorized_user, :only => :destroy
 
-  @@BUCKET = "RoR1"
+  @@BUCKET = "geigercounter"
 
   def create
     fileUp = params[:upload]
