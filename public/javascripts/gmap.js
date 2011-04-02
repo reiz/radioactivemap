@@ -36,22 +36,22 @@ function initialize_map_for_landing_page(htmlElement) {
         content: contentString
     });
 
-    var marker = new google.maps.Marker({
-        position: latlng,
-        map: map
-    });
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map, marker);
-    });
-
-
-    var marker2 = new google.maps.Marker({
-        position: latlng2,
-        map: map
-    });
-    google.maps.event.addListener(marker2, 'click', function() {
-      infowindow.open(map, marker2);
-    });
+//    var marker = new google.maps.Marker({
+//        position: latlng,
+//        map: map
+//    });
+//    google.maps.event.addListener(marker, 'click', function() {
+//      infowindow.open(map, marker);
+//    });
+//
+//
+//    var marker2 = new google.maps.Marker({
+//        position: latlng2,
+//        map: map
+//    });
+//    google.maps.event.addListener(marker2, 'click', function() {
+//      infowindow.open(map, marker2);
+//    });
 }
 
 function initialize_map_for_measurement(htmlElement) {
@@ -85,4 +85,3 @@ function placeManualMarker(location) {
     document.getElementById("measurement_lat").value = location.lat();
     document.getElementById("measurement_lon").value = location.lng();
 }
-
