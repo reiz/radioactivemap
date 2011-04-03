@@ -3,7 +3,7 @@
     <script type="text/javascript">
       function loadMarkers(){
         <% @forShow.each do | measurement | %>
-            var contentString = create_content(<%= measurement.msph %>, '<%= measurement.user.fullname %>, <%= measurement.content %>');
+            var contentString = create_content(<%= measurement.msph %>, '<%= measurement.user.fullname %>', '<%= measurement.content %>');
             placeMarker(contentString, <%= measurement.lat %>, <%= measurement.lon %>)
         <% end %>
       }

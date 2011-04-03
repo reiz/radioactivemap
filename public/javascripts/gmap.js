@@ -58,14 +58,12 @@ function placeManualMarker(location) {
 
 function create_content(sievert, name, coment){
     var contentString = '<div id="content">'+
-    '<div id="siteNotice">'+
-    '</div>'+
-    '<h3 id="firstHeading" class="firstHeading">' + sievert + ' µSv/hour</h3>'+
-    '<div id="bodyContent">'+
-    '<p><b>'+ name +'</b> </p>'+
-    '<p>'+coment+'</p>'+
-    '</div>'+
-    '</div>';
+       '<h4 id="firstHeading" class="firstHeading">' + sievert + ' µSv/hour</h4>' +
+       '<p><b>Measured by:</b> '+ name +'<br/>';
+    if (coment != null && coment != ''){
+        contentString += '<b>Coment:</b> '+coment+'</p>';
+    }
+    contentString += '</div>';
     return contentString;
 }
 
