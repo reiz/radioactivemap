@@ -333,7 +333,7 @@ ul.users {
 
 .mapForPost{
     width: 440px;
-    height: 150px;
+    height: 170px;
     margin-bottom: 2px;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
@@ -380,7 +380,7 @@ input{
 }
 
 .logo{
-    width: 80px;
+    /*width: 350px;*/
 }
 
 .smallHint{

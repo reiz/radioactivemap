@@ -13,51 +13,21 @@ function initialize() {
 }
 
 function initialize_map_for_landing_page(htmlElement) {
-    var latlng = new google.maps.LatLng(37.75, 140.4666667);
-    var latlng2 = new google.maps.LatLng(38.75, 140.4666667);
+    var latlng = new google.maps.LatLng(0.0, 20.4666667);
     var myOptions = {
-        zoom: 5,
+        zoom: 1,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(htmlElement, myOptions);
-
-    var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h2 id="firstHeading" class="firstHeading">0.01  µSv/hour</h2>'+
-            '<div id="bodyContent">'+
-            '<p><b>Robert Reiz</b> </p>'+
-            '<p>Voll Normal</p>'+
-            '</div>'+
-            '</div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-//    var marker = new google.maps.Marker({
-//        position: latlng,
-//        map: map
-//    });
-//    google.maps.event.addListener(marker, 'click', function() {
-//      infowindow.open(map, marker);
-//    });
-//
-//
-//    var marker2 = new google.maps.Marker({
-//        position: latlng2,
-//        map: map
-//    });
-//    google.maps.event.addListener(marker2, 'click', function() {
-//      infowindow.open(map, marker2);
-//    });
+    loadMarkers();
 }
 
 function initialize_map_for_measurement(htmlElement) {
-    var latlng = new google.maps.LatLng(37.75, 140.4666667);
+//    var latlng = new google.maps.LatLng(37.75, 140.4666667); // Japan
+    var latlng = new google.maps.LatLng(39.9, -95.223);
     var myOptions = {
-        zoom: 5,
+        zoom: 3,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -84,4 +54,31 @@ function placeManualMarker(location) {
     document.getElementById("show_lon").value = location.lng();
     document.getElementById("measurement_lat").value = location.lat();
     document.getElementById("measurement_lon").value = location.lng();
+}
+
+function create_content(sievert, name, coment){
+    var contentString = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h3 id="firstHeading" class="firstHeading">' + sievert + ' µSv/hour</h3>'+
+    '<div id="bodyContent">'+
+    '<p><b>'+ name +'</b> </p>'+
+    '<p>'+coment+'</p>'+
+    '</div>'+
+    '</div>';
+    return contentString;
+}
+
+function placeMarker(contentString, lat, lng){
+    var latlng = new google.maps.LatLng(lat, lng);
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map
+    });
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map, marker);
+    });
 }
