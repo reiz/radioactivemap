@@ -1,11 +1,7 @@
 
 - E-Mail Server aufsetzen
-- Passwod forgot function
+- Password forgot function
 - Measurement View
-
-- Haroku
-- Design/Logo besorgen
-
 
 Measurement
  - ID

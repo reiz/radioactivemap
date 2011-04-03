@@ -6,7 +6,7 @@ class MeasurementsController < ApplicationController
   def create
     @measurement = current_user.measurements.build(params[:measurement])
     if @measurement.save
-      flash[:success] = "measurement saved!"
+      flash[:success] = "Measurement saved!"
       redirect_to root_path
     else
       @feed_items = []
