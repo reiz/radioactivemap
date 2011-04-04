@@ -43,7 +43,7 @@ function initialize_map_for_measurement(htmlElement) {
 function initialize_map_for_show_measurement(htmlElement){
     var latlng = loadLatLon();
     var myOptions = {
-        zoom: 8,
+        zoom: 10,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };

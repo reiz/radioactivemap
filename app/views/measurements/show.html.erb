@@ -38,8 +38,8 @@
               </div>
               <div style="display:table-cell; vertical-align: top; padding: 5px; width: 160px;">
                 Geiger Counter <%= @geigercounter.name %> have <%= @geigercounter.tolerance %> % tolerance
-                <% if !@geigercounter.manufacturer.nil? %>
-                    and was manufactured by <%= @geigercounter.name %>
+                <% if !@geigercounter.manufacturer.empty? %>
+                    and was manufactured by <%= @geigercounter.manufacturer %>
                 <% end %>
               </div>
             </div>
