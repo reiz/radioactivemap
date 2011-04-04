@@ -35,6 +35,9 @@ function initialize_map_for_measurement(htmlElement) {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(htmlElement, myOptions);
+    google.maps.event.addListener(map, 'click', function(event) {
+        placeManualMarker(event.latLng);
+    });
 }
 
 function initialize_map_for_show_measurement(htmlElement){
