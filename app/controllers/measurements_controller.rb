@@ -1,7 +1,7 @@
 class MeasurementsController < ApplicationController
 
-  before_filter :authenticate
-  before_filter :authorized_user, :only => :destroy
+  before_filter :authenticate,    :except => :show
+  before_filter :authorized_user, :only   => :destroy
 
   def show
     @measurement = Measurement.find_by_name(params[:id])
