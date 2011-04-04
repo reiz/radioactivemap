@@ -22,5 +22,15 @@ Radioactivemap::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-end
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "ploin-mail.de",
+    :port                 => 25,
+    :domain               => 'radioactive-map.com',
+    :user_name            => '',
+    :password             => '',
+    :authentication       => 'plain',
+    :enable_starttls_auto => false  }
+
+end

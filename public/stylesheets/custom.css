@@ -75,6 +75,8 @@ footer {
 
 footer nav {
     float: none;
+    height: 40px;
+    vertical-align: middle;
 }
 
 
