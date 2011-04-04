@@ -428,6 +428,14 @@ input{
     font-size: 1.0em;
 }
 
+.checkbox{
+    width: 20px;
+}
+
+input .checkbox{
+    width: 20px;
+}
+
 .logo{
     /*width: 350px;*/
 }

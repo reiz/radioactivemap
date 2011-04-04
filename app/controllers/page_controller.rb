@@ -20,6 +20,9 @@ class PageController < ApplicationController
 
   end
 
+  def terms
+  end
+
   def signin
   end
 

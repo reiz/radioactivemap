@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  attr_accessor :password
-  attr_accessible :fullname, :username, :email, :password
+  attr_accessor :password, :terms
+  attr_accessible :fullname, :username, :email, :password, :terms
 
 
   validates :fullname, :presence      => true,
@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   validates :password, :presence      => true,
                        :length        => { :within => 5..40 }
+
+  validates_acceptance_of  :terms, :message => " - Accepting the Privacy Policy / Terms is mandatory for the registration!"
 
 
   has_many :measurements, :dependent => :destroy

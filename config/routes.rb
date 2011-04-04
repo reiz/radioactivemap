@@ -26,6 +26,7 @@ Radioactivemap::Application.routes.draw do
   match '/contact',   :to => 'page#contact'
   match '/about',     :to => 'page#about'
   match '/home',      :to => 'page#home'
+  match '/terms',     :to => 'page#terms'
 
   root :to => "page#home"
 
