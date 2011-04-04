@@ -1,6 +1,5 @@
 Radioactivemap::Application.routes.draw do
 
-
   resources :users, :key => :username
   resources :users do
     member do
@@ -12,6 +11,8 @@ Radioactivemap::Application.routes.draw do
       get :geigercounter
     end
   end
+
+  resources :measurements
 
   resources :sessions,        :only => [:new, :create, :destroy]
   resources :measurements,    :only => [:create, :destroy]

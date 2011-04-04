@@ -3,41 +3,7 @@
         <img src="<%= @geigercounter.url %>" width="150px"/>
     </div>
     <div style="float:left; width: 400px;">
-        <div style="display:table-row;">
-            <div class="labelCel">
-                <label>Name:</label>
-            </div>
-            <div class="inputShowCel">
-                <%= @geigercounter.name %>
-            </div>
-            <div class="hintCel smallHint">
-
-            </div>
-        </div>
-
-        <div style="display:table-row;">
-            <div class="labelCel">
-                <label>Tolerance:</label>
-            </div>
-            <div class="inputShowCel">
-                <%= @geigercounter.tolerance %> %
-            </div>
-            <div class="hintCel smallHint">
-
-            </div>
-        </div>
-
-        <div style="display:table-row;">
-            <div class="labelCel">
-                <label>Manufacturer:</label>
-            </div>
-            <div class="inputShowCel">
-                <%= @geigercounter.manufacturer %>
-            </div>
-            <div class="hintCel smallHint">
-
-            </div>
-        </div>
+        <%= render "shared/show_geiger_info" %>
     </div>
     <div style="clear:both; width: 300px; margin-left: auto; margin-right: auto; text-align: center;">
         <%= form_for @geigercounter, :html => { :method => :delete } do |f| %>

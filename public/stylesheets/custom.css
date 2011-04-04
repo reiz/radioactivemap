@@ -38,6 +38,16 @@ section {
     padding: 10px;
 }
 
+.bigcontent{
+    border: 0px solid black;
+    width: 650px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: left;
+}
+
 .sidebar{
     width: 176px;
     border: 0px solid black;
@@ -251,10 +261,21 @@ a.signup_button {
     padding-left: 7px;
 }
 
-.measurements .user{
+.userBold{
     font-size: 1.1em;
     font-weight: bold;
     color: black;
+}
+.userBold:visited{
+    font-size: 1.1em;
+    font-weight: bold;
+    color: black;
+}
+
+
+.feed_measurement{
+    font-size: 0.8em;
+    color: gray;
 }
 
 .timestamp{
@@ -324,7 +345,7 @@ ul.users {
 /****** MAP **********/
 
 .mapOnStartPage{
-    width: 600px;
+    width: 650px;
     height: 500px;
     margin-bottom: 20px;
     margin-left: auto;
@@ -337,6 +358,14 @@ ul.users {
     margin-bottom: 2px;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
+}
+
+.map_for_measurement_page{
+    width: 650px;
+    height: 300px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -356,7 +385,27 @@ ul.users {
     width: 100px;
 }
 
-.msphFeed{
+.msphFeedLink{
+   font-weight: bold;
+   color: #ff4500;
+}
+
+.msphFeedLink:after{
+   font-weight: bold;
+   color: #ff4500;
+}
+
+.msphFeedLink:active{
+   font-weight: bold;
+   color: #ff4500;
+}
+
+.msphFeedLink:visited{
+   font-weight: bold;
+   color: #ff4500;
+}
+
+.msphFeedLink:hover{
    font-weight: bold;
    color: #ff4500;
 }

@@ -45,9 +45,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
-    @followers = @user.followers.paginate(:page => 1)
-    @following = @user.following.paginate(:page => 1)
-    @measurements = @user.measurements.paginate(:page => params[:page])
+    if @user.nil?
+      redirect_to "/home"
+    else
+      @followers = @user.followers.paginate(:page => 1)
+      @following = @user.following.paginate(:page => 1)
+      @measurements = @user.measurements.paginate(:page => params[:page])
+    end
   end
 
   def index

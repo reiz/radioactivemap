@@ -1,0 +1,53 @@
+
+    <script type="text/javascript">
+      function loadLatLon(){
+          var latlng = new google.maps.LatLng(<%= @measurement.lat %>, <%= @measurement.lon %>);
+          return latlng;
+      }
+    </script>
+
+    <div class="bigcontent" >
+        <h1>
+            <%= @measurement.msph %> Mikrosievert per hour
+        </h1>
+        <div class="timestamp" style="text-align:center;">
+          Posted <%= time_ago_in_words(@measurement.created_at) %> ago.
+        </div>
+
+        <div id="map_for_measurement_page" class="map_for_measurement_page round" ></div>
+
+        <div style="display:table-row;">
+          <div style="display:table-cell;">
+            <div style="display:table-row;">
+              <div style="display:table-cell; width: 160px">
+                <%= link_to gravatar_mes_for(@user), @user %>
+              </div>
+              <div style="display:table-cell; vertical-align: top; padding: 5px; width: 160px;">
+                <%= link_to @user.fullname, @user, :class => "userBold" %><br/>
+                <%= link_to pluralize(@user.measurements.count, "measurement"), @user, :class => "user" %><br/>
+                <%= link_to pluralize(@user.followers.count, "follower"),  followers_user_path(@user.username), :class => "stat" %><br/>
+                <%= link_to pluralize(@user.following.count, "following"), following_user_path(@user.username), :class => "stat" %><br/>
+              </div>
+            </div>
+          </div>
+          <div>
+            <% if !@geigercounter.nil? %>
+            <div style="display:table-row; ">
+              <div style="display:table-cell; width: 160px;">
+                <img src="<%= @geigercounter.url %>" width="150px"/>
+              </div>
+              <div style="display:table-cell; vertical-align: top; padding: 5px; width: 160px;">
+                Geiger Counter <%= @geigercounter.name %> have <%= @geigercounter.tolerance %> % tolerance
+                <% if !@geigercounter.manufacturer.nil? %>
+                    and was manufactured by <%= @geigercounter.name %>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div style="padding: 10px; border: 2px solid gray; margin-top: 10px;">
+            <%= @measurement.content %>
+        </div>
+    </div>

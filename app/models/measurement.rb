@@ -14,6 +14,15 @@ class Measurement < ActiveRecord::Base
 
   before_save :create_random_name
 
+  def to_param
+    name
+  end
+
+  def sievert
+    " " if self.msph.nil?
+    "#{self.msph} microSv/h" if !self.msph.nil?
+  end
+
   private
 
     # Return an SQL condition for users followed by the given user.
@@ -27,7 +36,7 @@ class Measurement < ActiveRecord::Base
     def create_random_name
         chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
         self.name = ""
-        62.times { self.name << chars[rand(chars.size)] }
+        30.times { self.name << chars[rand(chars.size)] }
     end
 
 end

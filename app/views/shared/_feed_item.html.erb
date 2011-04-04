@@ -4,14 +4,13 @@
   </div>
   <div class="measurement">
     <span>
-      <%= link_to feed_item.user.fullname, feed_item.user, :class => "user" %>
+      <%= link_to feed_item.user.fullname, feed_item.user, :class => "userBold" %>
     </span><br/>
     <% unless feed_item.msph.nil? %>
-        <span class="msphFeed">
-          <%= feed_item.msph %> µSv/H.
+        <span >
+          <%= link_to feed_item.sievert, feed_item, :class => "msphFeedLink" %>
         </span>
     <% end %>
-    <% %>
     <span >
       <%= feed_item.content %>
     </span><br/>

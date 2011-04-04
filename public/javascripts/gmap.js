@@ -5,10 +5,13 @@ var prev_marker
 function initialize() {
     var map_for_landing_page = document.getElementById("map_for_landing_page");
     var map_for_measurement  = document.getElementById("map_for_measurement");
+    var map_for_measurement_page  = document.getElementById("map_for_measurement_page");
     if (map_for_landing_page != null){
         initialize_map_for_landing_page(map_for_landing_page);
     } else if (map_for_measurement != null){
         initialize_map_for_measurement(map_for_measurement);
+    } else if (map_for_measurement_page != null){
+        initialize_map_for_show_measurement(map_for_measurement_page);
     }
 }
 
@@ -32,8 +35,19 @@ function initialize_map_for_measurement(htmlElement) {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(htmlElement, myOptions);
-    google.maps.event.addListener(map, 'click', function(event) {
-        placeManualMarker(event.latLng);
+}
+
+function initialize_map_for_show_measurement(htmlElement){
+    var latlng = loadLatLon();
+    var myOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(htmlElement, myOptions);
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map
     });
 }
 

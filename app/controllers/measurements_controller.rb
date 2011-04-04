@@ -3,6 +3,16 @@ class MeasurementsController < ApplicationController
   before_filter :authenticate
   before_filter :authorized_user, :only => :destroy
 
+  def show
+    @measurement = Measurement.find_by_name(params[:id])
+    if @measurement.nil?
+      redirect_to "/home"
+    else
+      @user = @measurement.user
+      @geigercounter = @user.geigercounter
+    end
+  end
+
   def create
     @measurement = current_user.measurements.build(params[:measurement])
     if @measurement.save

@@ -9,17 +9,6 @@
     </a>
   </div>
   <div>
-    <a href="#">
-        <span id="geigercounter" class="stat">
-            <% if @user.geigercounter.nil? %>
-                0 Geigercounter
-            <% else %>
-                1 Geigercounter
-            <% end %>
-        </span>
-    </a>
-  </div>
-  <div>
     <a href="<%= followers_user_path(@user.username) %>">
         <span id="followers" class="stat">
             <%= pluralize(@user.followers.count, "follower") %>
