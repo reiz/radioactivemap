@@ -18,6 +18,13 @@ class PageController < ApplicationController
       @following = @user.following.paginate(:page => 1)
     end
 
+    respond_to do |format|
+      format.html
+      format.json{
+        render :json => @feed_items.to_json
+      }
+    end
+
   end
 
   def terms
