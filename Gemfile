@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
+gem 'json', '1.5.1'
+gem 'httparty', '0.7.4'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 gem 'faker', '0.3.1', :require => false

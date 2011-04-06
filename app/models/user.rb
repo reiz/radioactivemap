@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   attr_accessor :password, :terms
-  attr_accessible :fullname, :username, :email, :password, :terms
+  attr_accessible :fullname, :username, :email, :fb_id, :password, :terms
 
 
   validates :fullname, :presence      => true,
@@ -78,7 +78,22 @@ class User < ActiveRecord::Base
     Measurement.from_users_followed_by(self)
   end
 
-  private 
+  def update_from_fb_json (json_user)
+    fullname = json_user['name']
+    username = json_user['username']
+    email = json_user['email']
+    fb_id = json_user['id']
+    password = create_random_value
+  end
+
+  private
+
+    def create_random_value
+      chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+      value = ""
+      10.times { value << chars[rand(chars.size)] }
+      value
+    end
 
     def encrypt_password
       self.salt = make_salt if new_record?

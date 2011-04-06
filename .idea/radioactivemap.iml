@@ -48,6 +48,18 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="httparty" version="0.7.4" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="json" version="1.5.1" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="pg" version="0.10.1" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -147,6 +159,9 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] xml-simple (v1.0.15, /opt/local/lib/ruby1.9/gems/1.9.1/gems/xml-simple-1.0.15)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] s3 (v0.3.8, /opt/local/lib/ruby1.9/gems/1.9.1/gems/s3-0.3.8)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] proxies (v0.2.1, /opt/local/lib/ruby1.9/gems/1.9.1/gems/proxies-0.2.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] httparty (v0.7.4, /opt/local/lib/ruby1.9/gems/1.9.1/gems/httparty-0.7.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.5.1, /opt/local/lib/ruby1.9/gems/1.9.1/gems/json-1.5.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] crack (v0.1.8, /opt/local/lib/ruby1.9/gems/1.9.1/gems/crack-0.1.8)" level="application" />
   </component>
 </module>
 

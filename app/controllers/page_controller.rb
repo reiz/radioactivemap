@@ -8,7 +8,7 @@ class PageController < ApplicationController
 
   def home
     @forShow = Measurement.all
-    @test = "test"
+
     if signed_in?
       @measurement = Measurement.new
       @measurement.msph = 1;
@@ -24,7 +24,20 @@ class PageController < ApplicationController
         render :json => @feed_items.to_json
       }
     end
+  end
 
+  def myfeed
+    user = User.authenticate(params[:email],
+                             params[:password])
+    if !user.nil?
+      @feed_items = user.feed
+    end
+
+    respond_to do |format|
+      format.json{
+        render :json => @feed_items.to_json
+      }
+    end
   end
 
   def terms
