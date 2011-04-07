@@ -25,13 +25,13 @@ class Measurement < ActiveRecord::Base
 
   def as_json(options = {})
     {
-        content: self.content,
-        msph: self.msph,
-        lat: self.lat,
-        lon: self.lon,
-        user_img_link: self.user.image_url,
-        username: self.user.username,
-        creationdate: self.created_at
+        :content => self.content,
+        :msph => self.msph,
+        :lat => self.lat,
+        :lon => self.lon,
+        :user_img_link => self.user.image_url,
+        :username => self.user.username,
+        :creationdate => self.created_at
     }
   end
 
