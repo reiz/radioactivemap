@@ -29,9 +29,9 @@ class Measurement < ActiveRecord::Base
         msph: self.msph,
         lat: self.lat,
         lon: self.lon,
-        user_img_link: user.image_url,
-        username: user.username,
-        date: created_at
+        user_img_link: self.user.image_url,
+        username: self.user.username,
+        creationdate: self.created_at
     }
   end
 
