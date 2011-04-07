@@ -22,13 +22,15 @@ Radioactivemap::Application.routes.draw do
   match '/signup',    :to => 'users#new'
   match '/signin',    :to => 'sessions#new'
   match '/signout',   :to => 'sessions#destroy'
-  match '/createfb',  :to => 'sessions#createfb'
-  match '/handlefbcode',  :to => 'sessions#handle_fb_code'
+
+  match '/facebook/start',    :to => 'facebook#start'
+  match '/facebook/callback', :to => 'facebook#callback'
 
   match '/contact',   :to => 'page#contact'
   match '/about',     :to => 'page#about'
   match '/home',      :to => 'page#home'
   match '/terms',     :to => 'page#terms'
+
   match '/myfeed',    :to => 'page#myfeed'
 
   root :to => "page#home"

@@ -1,4 +1,17 @@
 <header>
+    <script language="JavaScript">
+        var winWidth = 950;
+        var winHeigh = 550;
+        var left = (screen.width/2)-(winWidth/2);
+        var top = (screen.height/2)-(winHeigh/2);
+
+        var domainlink = "https://graph.facebook.com/oauth/authorize?";
+        var req_perms = "req_perms=email&";
+        var clientid = "client_id=216988828315277&";
+        var scope = "scope=email,offline_access&";
+        var redirect = "redirect_uri=http://radioactive-map.com/facebook/start";
+        var link = domainlink + req_perms + clientid + scope + redirect;
+    </script>
     <%= logo %>
     <div style="float:right;">
       <nav class="round">
@@ -16,14 +29,12 @@
           <% end %>
         </ul>
       </nav>
-      <!--<div style="clear:both; padding-top: 5px;">-->
-        <!--<a href='javascript:-->
-                <!--var w=650;-->
-                <!--var h=450;-->
-                <!--var left = (screen.width/2)-(w/2);-->
-                <!--var top = (screen.height/2)-(h/2);-->
-                <!--var popupWindow = window.open("https://graph.facebook.com/oauth/authorize?req_perms=emai&client_id=216988828315277&scope=email,offline_access&redirect_uri=http://rob.wildgigs.com/handlefbcode","popupWindow","toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no,menubar=1,resizable=1,width="+w+",height="+h+"top="+top+", left="+left);' style="margin-right: 5px;" ><img src="/images/fb_login_icon.gif"  style="border: 0px solid white; " height="18" width="128"/></a>-->
-      <!--</div>-->
+      <div style="clear:both; padding-top: 5px;">
+        <a href='javascript:var popupWindow = window.open(link, "popupWindow", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, menubar=1, resizable=1, width="+winWidth+",height="+winHeigh+"top="+top+", left="+left);'
+           style="margin-right: 5px;" >
+          <img src="/images/fb_login_icon.gif"  style="border: 0px solid white; " height="18" width="128"/>
+        </a>
+      </div>
     </div>
 
 </header>

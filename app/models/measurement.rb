@@ -23,6 +23,18 @@ class Measurement < ActiveRecord::Base
     "#{self.msph} microSv/h" if !self.msph.nil?
   end
 
+  def as_json(options = {})
+    {
+        content: self.content,
+        msph: self.msph,
+        lat: self.lat,
+        lon: self.lon,
+        user_img_link: user.image_url,
+        username: user.username,
+        date: created_at
+    }
+  end
+
   private
 
     # Return an SQL condition for users followed by the given user.

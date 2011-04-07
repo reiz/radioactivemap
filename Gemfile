@@ -2,14 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
 gem 'json', '1.5.1'
+gem 'oauth', '0.2.0'
 gem 'httparty', '0.7.4'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 gem 'faker', '0.3.1', :require => false
 gem 'pg', '0.10.1'
 gem 'aws-s3', '0.6.2', :require => 'aws/s3'
-gem 's3', '0.3.8'
-
 
 group :development do
 	gem 'rspec-rails', '2.5.0'

@@ -47,6 +47,12 @@ class User < ActiveRecord::Base
     username
   end
 
+  def image_url
+    url = 'http://www.gravatar.com/avatar/'
+    url += Digest::MD5.hexdigest(email.strip.downcase)
+    url
+  end
+
   def has_password?(submitted_password)
     self.encrypted_password == encrypt(submitted_password)
   end

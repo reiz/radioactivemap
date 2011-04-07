@@ -60,6 +60,12 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="oauth" version="0.2.0" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="pg" version="0.10.1" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -79,12 +85,6 @@
     <requirement>
       <requirement>
         <dependency name="rspec-rails" version="2.5.0" bound="EQUAL" git="false" path="false" doRequire="true" />
-      </requirement>
-      <source from="Gemfile" />
-    </requirement>
-    <requirement>
-      <requirement>
-        <dependency name="s3" version="0.3.8" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -162,6 +162,8 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] httparty (v0.7.4, /opt/local/lib/ruby1.9/gems/1.9.1/gems/httparty-0.7.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.5.1, /opt/local/lib/ruby1.9/gems/1.9.1/gems/json-1.5.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] crack (v0.1.8, /opt/local/lib/ruby1.9/gems/1.9.1/gems/crack-0.1.8)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] oauth (v0.2.0, /opt/local/lib/ruby1.9/gems/1.9.1/gems/oauth-0.2.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] ruby-hmac (v0.4.0, /opt/local/lib/ruby1.9/gems/1.9.1/gems/ruby-hmac-0.4.0)" level="application" />
   </component>
 </module>
 
