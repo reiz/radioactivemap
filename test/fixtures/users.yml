@@ -1,15 +1,19 @@
 # == Schema Information
-# Schema version: 20110310030059
+# Schema version: 20110406010754
 #
 # Table name: users
 #
 #  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
+#  username           :string(50)      not null
+#  fullname           :string(50)      not null
+#  email              :string(254)     not null
 #  created_at         :datetime
 #  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
+#  encrypted_password :string(255)     not null
+#  salt               :string(255)     not null
+#  admin              :boolean
+#  fb_id              :string(100)
+#  fb_token           :string(255)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

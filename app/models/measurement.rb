@@ -1,3 +1,19 @@
+# == Schema Information
+# Schema version: 20110406010754
+#
+# Table name: measurements
+#
+#  id         :integer         not null, primary key
+#  name       :string(200)     not null
+#  content    :string(240)     not null
+#  lat        :float
+#  lon        :float
+#  msph       :float
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Measurement < ActiveRecord::Base
 
   attr_accessible :content, :msph, :lat, :lon

@@ -1,3 +1,21 @@
+# == Schema Information
+# Schema version: 20110406010754
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  username           :string(50)      not null
+#  fullname           :string(50)      not null
+#  email              :string(254)     not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)     not null
+#  salt               :string(255)     not null
+#  admin              :boolean
+#  fb_id              :string(100)
+#  fb_token           :string(255)
+#
+
 class User < ActiveRecord::Base
 
   attr_accessor :password, :terms
@@ -85,11 +103,11 @@ class User < ActiveRecord::Base
   end
 
   def update_from_fb_json (json_user)
-    fullname = json_user['name']
-    username = json_user['username']
-    email = json_user['email']
-    fb_id = json_user['id']
-    password = create_random_value
+    self.fullname = json_user['name']
+    self.username = json_user['username']
+    self.email = json_user['email']
+    self.fb_id = json_user['id']
+    self.password = create_random_value
   end
 
   private
