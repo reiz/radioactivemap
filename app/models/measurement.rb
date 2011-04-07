@@ -31,6 +31,7 @@ class Measurement < ActiveRecord::Base
         :lon => self.lon,
         :user_img_link => self.user.image_url,
         :username => self.user.username,
+        :userfullname => self.user.fullname,
         :creationdate => self.created_at
     }
   end
