@@ -33,9 +33,12 @@ class PageController < ApplicationController
       @feed_items = user.feed
     end
 
+    resp = feed_with_callback(params[:jsonCallback])
+#    resp = feed_with_callback('jsonCalli')
+
     respond_to do |format|
       format.json{
-        render :json => @feed_items.to_json
+        render :json => resp
       }
     end
   end
@@ -47,6 +50,15 @@ class PageController < ApplicationController
   end
 
   def signup
+  end
+
+  private
+
+  def feed_with_callback(callback)
+    json = callback + '('
+    json += @feed_items.to_json
+    json += ')'
+    json
   end
 
 end
