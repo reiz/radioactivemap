@@ -54,7 +54,7 @@ class Measurement < ActiveRecord::Base
 
   def spoken_measurement
     message = self.user.fullname + " measured " + self.msph.to_s + " Mikrosievert"
-    message += " with Geiger" + self.user.geigercounter.name unless self.user.geigercounter.nil?
+    message += " with Geiger " + self.user.geigercounter.name unless self.user.geigercounter.nil?
     message
   end
 
