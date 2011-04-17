@@ -2,8 +2,10 @@
     <script type="text/javascript">
       function loadMarkers(){
         <% @forShow.each do | measurement | %>
+          <% unless measurement.lat.nil? || measurement.lon.nil? %>
             var contentString = create_content(<%= measurement.msph %>, '<%= measurement.user.fullname %>', '<%= measurement.content %>');
-            placeMarker(contentString, <%= measurement.lat %>, <%= measurement.lon %>)
+            placeMarker(contentString, <%= measurement.lat %>, <%= measurement.lon %>);
+          <% end %>
         <% end %>
       }
     </script>
