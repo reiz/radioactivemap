@@ -33,7 +33,7 @@ class PageController < ApplicationController
       @feed_items = user.feed
     end
 
-    resp = feed_with_callback(params[:jsonCallback])
+    resp = feed_with_callback(params[:jsoncallback])
 #    resp = feed_with_callback('jsonCalli')
 
     respond_to do |format|
