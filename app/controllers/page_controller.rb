@@ -7,8 +7,6 @@ class PageController < ApplicationController
   end
 
   def home
-    @forShow = Measurement.all
-
     if signed_in?
       @measurement = Measurement.new
       @measurement.msph = 1;
@@ -16,6 +14,8 @@ class PageController < ApplicationController
       @user = current_user
       @followers = @user.followers.paginate(:page => 1)
       @following = @user.following.paginate(:page => 1)
+    else
+      @forShow = Measurement.all
     end
 
     respond_to do |format|

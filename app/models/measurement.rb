@@ -52,6 +52,12 @@ class Measurement < ActiveRecord::Base
     }
   end
 
+  def spoken_measurement
+    message = self.user.fullname + " measured " + self.msph.to_s + " Mikrosievert"
+    message += " with Geiger" + self.user.geigercounter.name unless self.user.geigercounter.nil?
+    message
+  end
+
   private
 
     # Return an SQL condition for users followed by the given user.

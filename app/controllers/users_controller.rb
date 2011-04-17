@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    User.find_by_username(params[:id]).destroy
     flash[:success] = "User destroyed"
     redirect_to users_path
   end
