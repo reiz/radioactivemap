@@ -308,6 +308,38 @@ form.new_measurements textarea {
   margin-bottom: 0;
 }
 
+.measure_content{
+    padding: 10px;
+    border: 2px solid gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.measure_comment{
+    display: table-row;
+    width: 100%;
+    padding-bottom: 50px;
+}
+.measure_comment_gravatar{
+    display: table-cell;
+    width: 50px;
+}
+.measure_comment_content{
+    display: table-cell;
+    border-top: 1px solid #CCCCCC;
+    vertical-align: top;
+    padding: 5px;
+}
+
+.measure_comment_area{
+    margin-top: 10px;
+}
+
+.measure_comment_txtarea{
+    width: 630px;
+    height: 40px;
+}
+
 /**** USER LIST *********/
 
 ul.users {

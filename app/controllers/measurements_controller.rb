@@ -10,6 +10,7 @@ class MeasurementsController < ApplicationController
     else
       @user = @measurement.user
       @geigercounter = @user.geigercounter
+      @comment = Comment.new
     end
   end
 
@@ -27,6 +28,15 @@ class MeasurementsController < ApplicationController
   def destroy
     @measurement.destroy
     redirect_back_or root_path
+  end
+
+  def comment
+    @measurement = Measurement.find_by_name(params[:id])
+    comment = @measurement.comments.build(comment)
+    comment.content = params[:comment][:content]
+    comment.user = current_user
+    comment.save
+    redirect_to @measurement
   end
 
   private

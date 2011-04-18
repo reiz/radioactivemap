@@ -12,7 +12,11 @@ Radioactivemap::Application.routes.draw do
     end
   end
 
-  resources :measurements
+  resources :measurements do
+    member do
+      post :comment
+    end
+  end
 
   resources :sessions,        :only => [:new, :create, :destroy]
   resources :measurements,    :only => [:create, :destroy]
