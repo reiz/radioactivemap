@@ -1,4 +1,17 @@
 
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      function shareOnFacebook(message, link){
+        FB.init({
+            appId:'216988828315277', cookie:true,
+            status:true, xfbml:true
+        });
+        FB.ui({ method: 'feed',
+                link: link,
+                description: message});
+      }
+    </script>
     <script type="text/javascript">
       function loadLatLon(){
           var latlng = new google.maps.LatLng(<%= @measurement.lat %>, <%= @measurement.lon %>);
