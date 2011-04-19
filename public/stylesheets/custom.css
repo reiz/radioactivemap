@@ -315,6 +315,10 @@ form.new_measurements textarea {
     margin-bottom: 10px;
 }
 
+.measure_share_area{
+    padding-bottom: 10px;
+}
+
 .measure_comment{
     display: table-row;
     width: 100%;
