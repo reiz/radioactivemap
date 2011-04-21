@@ -59,14 +59,17 @@ function initialize_map_for_show_measurement(htmlElement){
 
 // ***** INIT MAP STOP ********************************
 
-function create_content(sievert, name, coment){
+function create_content(sievert, name, date, link){
+    var color = 'style="color:green"';
+    if (sievert != null && sievert > 10)
+        color = 'style="color:red"'
+    else if (sievert != null && sievert > 1)
+        color = 'style="color:yellow"';
     var contentString = '<div id="content">'+
-       '<h4 id="firstHeading" class="firstHeading">' + sievert + ' µSv/hour</h4>' +
-       '<p><b>Measured by:</b> '+ name +'<br/>';
-    if (coment != null && coment != ''){
-        contentString += '<b>Coment:</b> '+coment+'</p>';
-    }
-    contentString += '</div>';
+       '<span '+color+'>' + sievert + ' µSv/hour</span><br/>' +
+       '<span class="timestamp">posted '+ date +' ago</span> | ' +
+       '<span class="timestamp">'+link+'</span><br/>' +
+       '<span>Measured by</span> '+ name +'<br/><br/><br/></div>';
     return contentString;
 }
 

@@ -3,7 +3,7 @@
       function loadMarkers(){
         <% @forShow.each do | measurement | %>
           <% unless measurement.lat.nil? || measurement.lon.nil? %>
-            var contentString = create_content(<%= measurement.msph %>, '<%= measurement.user.fullname %>', '<%= measurement.content %>');
+            var contentString = create_content(<%= measurement.msph %>, '<%= measurement.user.fullname %>', '<%= time_ago_in_words(measurement.created_at) %>', '<%= link_to "see details", measurement %>');
             placeMarker(contentString, <%= measurement.lat %>, <%= measurement.lon %>);
           <% end %>
         <% end %>
