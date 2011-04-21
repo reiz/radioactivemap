@@ -64,7 +64,7 @@ function create_content(sievert, name, date, link){
     if (sievert != null && sievert > 10)
         color = 'style="color:red"'
     else if (sievert != null && sievert > 1)
-        color = 'style="color:yellow"';
+        color = 'style="color:orange"';
     var contentString = '<div id="content">'+
        '<span '+color+'>' + sievert + ' µSv/hour</span><br/>' +
        '<span class="timestamp">posted '+ date +' ago</span> | ' +
