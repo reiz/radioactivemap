@@ -16,3 +16,16 @@ function loadMarkers(){
             placeMarker(contentString, <%= akw.lng %>, <%= akw.lat %>);
           <% end %>
         <% end %>
+
+
+    <script type="text/javascript">
+        function loadAkws(){
+        <% @akws.each do | akw | %>
+          <% unless akw.lat.nil? || akw.lng.nil? || akw.lat == "" || akw.lng == "" %>
+            var contentString = create_akw_content('<%= akw.name %>', '<%= akw.status %>', '<%= akw.full_link %>');
+            placeMarker(contentString, <%= akw.lat %>, <%= akw.lng %>);
+          <% end %>
+        <% end %>
+        clusterMarker();
+        }
+   </script>
