@@ -6,6 +6,10 @@ class PageController < ApplicationController
   def about
   end
 
+  def akws
+    Akw.load_file()
+  end
+
   def home
     if signed_in?
       @measurement = Measurement.new
@@ -15,7 +19,8 @@ class PageController < ApplicationController
       @followers = @user.followers.paginate(:page => 1)
       @following = @user.following.paginate(:page => 1)
     else
-      @forShow = Measurement.all
+#      @forShow = Measurement.all
+#      @akws = Akw.all
     end
 
     respond_to do |format|

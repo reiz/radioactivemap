@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406010754) do
+ActiveRecord::Schema.define(:version => 20110423215318) do
+
+  create_table "akws", :force => true do |t|
+      t.string "name"
+      t.string "link"
+      t.string "akwtype"
+      t.string "status"
+      t.string "lat"
+      t.string "lng"
+      t.datetime "created_at"
+      t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.string   "content",        :limit => 240, :null => false

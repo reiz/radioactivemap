@@ -2,14 +2,21 @@
     <div id="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <script>
-      function shareOnFacebook(message, link){
+      function shareOnFacebook(message, link, picture){
         FB.init({
             appId:'216988828315277', cookie:true,
             status:true, xfbml:true
         });
-        FB.ui({ method: 'feed',
+        if (picture != null){
+            FB.ui({ method: 'feed',
                 link: link,
                 description: message});
+        } else {
+            FB.ui({ method: 'feed',
+                link: link,
+                picture: picture,
+                description: message});
+        }
       }
     </script>
     <script type="text/javascript">
@@ -21,7 +28,7 @@
 
     <div class="bigcontent" >
         <h1>
-            <%= @measurement.msph %> Mikrosievert per hour
+            <%= @measurement.msph %> Microsievert per hour
         </h1>
         <div class="timestamp" style="text-align:center;">
           Posted <%= time_ago_in_words(@measurement.created_at) %> ago.
@@ -65,7 +72,7 @@
         </div>
 
         <div class="measure_share_area">
-          Share on <a href="#" onclick="shareOnFacebook('<%= @measurement.spoken_measurement %>', 'http://radioactive-map.com/measurements/<%=@measurement.name%>');">facebook</a>
+          Share on <a href="#" onclick="shareOnFacebook('<%= @measurement.spoken_measurement %>', 'http://radioactive-map.com/measurements/<%=@measurement.name%>', '<%=@geigercounter.url%>');">facebook</a>
         </div>
 
         <% unless @measurement.comments.nil? %>

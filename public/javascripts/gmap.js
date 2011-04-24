@@ -26,7 +26,9 @@ function initialize_map_for_landing_page(htmlElement) {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(htmlElement, myOptions);
-    loadMarkers();
+//    loadMarkers();
+//    loadAkws();
+    load_static_akws();
 }
 
 function initialize_map_for_measurement(htmlElement) {
@@ -70,6 +72,15 @@ function create_content(sievert, name, date, link){
        '<span class="timestamp">posted '+ date +' ago</span> | ' +
        '<span class="timestamp">'+link+'</span><br/>' +
        '<span>Measured by</span> '+ name +'<br/><br/><br/></div>';
+    return contentString;
+}
+
+function create_akw_content(name, status, link){
+    var contentString = '<div id="content">'+
+       '<span>' + name + '</span><br/>' +
+       '<span class="timestamp">Status: '+ status +'</span> | ' +
+       '<span class="timestamp"><a href="'+link+'" target="_NEW">details</a></span><br/>' +
+       '<br/><br/></div>';
     return contentString;
 }
 

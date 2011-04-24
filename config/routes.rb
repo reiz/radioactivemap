@@ -34,6 +34,7 @@ Radioactivemap::Application.routes.draw do
   match '/about',     :to => 'page#about'
   match '/home',      :to => 'page#home'
   match '/terms',     :to => 'page#terms'
+#  match '/akws',      :to => 'page#akws'
 
   match '/myfeed',    :to => 'page#myfeed'
 
